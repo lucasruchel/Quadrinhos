@@ -52,7 +52,7 @@
 
                 <div class="form-group">
                     #{msg.cpf}
-                    <h:inputText styleClass="form-control" id="cpf" label="#{msg.cpf}" onblur="validarCPF(this.value)"
+                    <h:inputText styleClass="form-control" id="cpf" label="#{msg.cpf}" onblur="valida()">
                          value="#{cliente.cpf}" required="true"
                          requiredMessage="#{msg.cpfObr}">
                     </h:inputText>
