@@ -46,3 +46,6 @@ function valida(cpf)
 
     return true;
 }
+function teste(){
+    alert("Hello world");
+}
