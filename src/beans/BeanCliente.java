@@ -67,6 +67,12 @@ public class BeanCliente {
             String email = ec.getRequestParameterMap().get("j_register:email");
             String senha = ec.getRequestParameterMap().get("j_register:pass");
             String cpf = ec.getRequestParameterMap().get("j_register:cpf");
+            String telefone=ec.getRequestParameterMap().get("j_register:telefone");
+            String cep=ec.getRequestParameterMap().get("j_register:cep");
+            String rua=ec.getRequestParameterMap().get("j_register:rua");
+            String bairro=ec.getRequestParameterMap().get("j_register:bairro");
+            String cidade=ec.getRequestParameterMap().get("j_register:cidade");
+            String numero=ec.getRequestParameterMap().get("j_register:numero");
 
             System.out.println(ec.getRequestParameterMap().get("j_register:cpf"));
             cliente.setNome(nome);
@@ -74,6 +80,12 @@ public class BeanCliente {
             cliente.setSenha(senha);
             cliente.setDataCadastro(new Date());
             cliente.setCpf(cpf);
+            cliente.setTelefone(telefone);
+            cliente.setCep(cep);
+            cliente.setRua(rua);
+            cliente.setBairro(bairro);
+            cliente.setCidade(cidade);
+            cliente.setNumero(numero);
             //cliente.setDataAlteracao(new Date());
         }
 
