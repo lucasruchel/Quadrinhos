@@ -14,6 +14,7 @@ import java.util.Date;
 @NamedQueries({
         @NamedQuery(name="Cliente.login", query="Select c FROM Cliente c where c.email=:email and c.senha=:senha")})
 
+@Table(name = "cliente",uniqueConstraints = @UniqueConstraint(columnNames = {"email","cpf"}))
 @ManagedBean(name = "cliente")
 public class Cliente  implements Serializable{
 
@@ -25,8 +26,10 @@ public class Cliente  implements Serializable{
 
     @Column(nullable = false)
     private String nome;
+
     @Column(nullable = false)
     private String email;
+
     @Column(nullable = false)
     private String senha;
     private Date dataCadastro;
@@ -39,6 +42,15 @@ public class Cliente  implements Serializable{
     private String bairro;
     private String cidade;
     private String numero;
+    private String estado;
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
 
     public String getNumero() {
         return numero;
