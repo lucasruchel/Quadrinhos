@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: wheezy
+  Date: 13/11/15
+  Time: 09:41
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+
+    <title><ui:insert name="title">some texte</ui:insert></title>
+
+    <ui:insert name="default-headers">
+
+
+    <h:outputStylesheet library="bootstrap" name="css/bootstrap.min.css"/>
+    <h:outputStylesheet library="custom" name="sticky-footer.css" />
+    <h:outputStylesheet library="custom" name="navbar-fixed-top.css" />
+    <h:outputStylesheet library="custom" name="banner.css" />
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    </ui:insert>
+
+
+
+
+    <ui:insert name="custom-headers"></ui:insert>
+</h:head>
+
+<h:body>
+    <ui:include src="header.xhtml"/>
+
+    <ui:insert name="banner" />
+
+    <ui:insert name="content" />
+
+
+    <ui:include src="footer.xhtml"/>
+</h:body>
+<ui:insert name="default-scripts">
+    <h:outputScript library="jquery" name="jquery-2.1.4.min.js"/>
+    <h:outputScript library="bootstrap" name="js/bootstrap.min.js"/>
+
+</ui:insert>
+<ui:insert name="custom-scripts"></ui:insert>
+
+
+</html>

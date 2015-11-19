@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="/WEB-INF/templates/index.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+        >
+    <ui:define name="title">Gizzads - Loja de Quadrinhos</ui:define>
+
+    <ui:define name="custom-headers">
+        <h:outputStylesheet library="custom" name="form-style.css" />
+    </ui:define>
+    <ui:define name="custom-scripts">
+        <h:outputScript library="custom" name="validadores.js" />
+    </ui:define>
+
+    <ui:define name="content">
+        <div class="container form-container">
+
+            <h:form id="j_register">
+                <div class="form-group">
+                    #{msg.nome}
+                    <h:inputText styleClass="form-control" id="nome" label="#{msg.nome}"
+                                 value="#{cliente.nome}" required="true"
+                                 requiredMessage="#{msg.nomeObr}"/>
+                    <h:message for="nome" styleClass="errorMessage"/>
+                </div>
+
+                <div class="form-group">
+                    #{msg.email}
+                    <h:inputText styleClass="form-control" id="email" label="#{msg.email}"
+                                 value="#{cliente.email}" required="true"
+                                 requiredMessage="#{msg.emailObr}"/>
+                    <h:message for="email" styleClass="errorMessage"/>
+                </div>
+
+                <div class="form-group">
+                    #{msg.pass}
+                    <h:inputSecret styleClass="form-control" id="pass" label="#{msg.pass}"
+                                   value="#{cliente.senha}" required="true"
+                                   requiredMessage="#{msg.passObr}">
+                    </h:inputSecret>
+                    <h:message for="pass" styleClass="errorMessage"/>
+                </div>
+
+                <div class="form-group">
+                    #{msg.cpf}
+                    <h:inputText styleClass="form-control" id="cpf" label="#{msg.cpf}" onblur="validarCPF(this.value)"
+                         value="#{cliente.cpf}" required="true"
+                         requiredMessage="#{msg.cpfObr}">
+                    </h:inputText>
+                    <h:message for="cpf" styleClass="errorMessage"/>
+                </div>
+                <div class="form-group">
+                    #{msg.telefone}
+                    <h:inputText styleClass="form-control" id="telefone" label="#{msg.telefone}"
+                                   value="#{cliente.telefone}" required="true"
+                                   requiredMessage="#{msg.telefoneObr}">
+                    </h:inputText>
+                    <h:message for="telefone" styleClass="errorMessage"/>
+                </div>
+
+
+                <h:commandButton action="#{beanCliente.insere}" value="Salvar"/>
+            </h:form>
+        </div>
+    </ui:define>
+
+</ui:composition>
+
+
+
+</html>

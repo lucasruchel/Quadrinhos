@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ejb" name="Quadrinhos:ejb exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/Quadrinhos_ejb_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="Quadrinhos/ejb/EJB" />
+      <element id="module-output" name="Quadrinhos" />
+    </root>
+  </artifact>
+</component>
