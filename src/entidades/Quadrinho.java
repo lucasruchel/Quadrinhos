@@ -20,9 +20,8 @@ public class Quadrinho implements Serializable{
     @Lob
     private String descricao;
 
-    @Lob
-    private byte[] imagem;
-
+    @OneToOne
+    private UploadImage image;
 
     private float valorCompra;
 

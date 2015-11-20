@@ -12,17 +12,9 @@ import java.io.Serializable;
  * Created by wagner on 18/11/15.
  */
 @Stateless
-public class EjbCliente {
+public class ClienteRepository extends GenericRepository<Cliente> {
 
-    @PersistenceContext(name = "CrudPU")
-    EntityManager entityManager;
 
-    public void persist(Cliente cliente){
-        entityManager.persist(cliente);
-    }
-    public Cliente find(int id){
-        return entityManager.find(Cliente.class,id);
-    }
 
     public Cliente findByEmailSenha(String email,String senha) {
         try {
