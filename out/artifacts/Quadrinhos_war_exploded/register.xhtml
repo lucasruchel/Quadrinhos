@@ -37,9 +37,7 @@
                     #{msg.email}
                     <h:inputText styleClass="form-control" id="email" label="#{msg.email}"
                                  value="#{cliente.email}" required="true"
-                                 requiredMessage="#{msg.emailObr}">
-                        <f:validator validatorId="emailValidator" />
-                    </h:inputText>
+                                 requiredMessage="#{msg.emailObr}"/>
                     <h:message for="email" styleClass="errorMessage"/>
                 </div>
 
@@ -54,10 +52,9 @@
 
                 <div class="form-group">
                     #{msg.cpf}
-                    <h:inputText styleClass="form-control" id="cpf" label="#{msg.cpf}"
-                         required="true" value="#{cliente.cpf}"
+                    <h:inputText styleClass="form-control" id="cpf" label="#{msg.cpf}" onblur="valida()">
+                         value="#{cliente.cpf}" required="true"
                          requiredMessage="#{msg.cpfObr}">
-                        <f:validator validatorId="cpfvalidor" />
                     </h:inputText>
                     <h:message for="cpf" styleClass="errorMessage"/>
                 </div>
@@ -66,65 +63,10 @@
                     <h:inputText styleClass="form-control" id="telefone" label="#{msg.telefone}"
                                    value="#{cliente.telefone}" required="true"
                                    requiredMessage="#{msg.telefoneObr}">
-                        <f:validateLength minimum="10" maximum="11"/>
                     </h:inputText>
                     <h:message for="telefone" styleClass="errorMessage"/>
-
                 </div>
 
-                <div class="form-group">
-                    #{msg.cep}
-                    <h:inputText styleClass="form-control" id="cep" label="#{msg.cep}"
-                                 value="#{cliente.cep}" required="true"
-                                 requiredMessage="#{msg.cepObr}">
-                        <f:validateLength minimum="8" maximum="8"/>
-                    </h:inputText>
-                    <h:message for="cep" styleClass="errorMessage"/>
-                </div>
-
-                <div class="form-group">
-                    #{msg.rua}
-                    <h:inputText styleClass="form-control" id="rua" label="#{msg.rua}"
-                                 value="#{cliente.rua}" required="true"
-                                 requiredMessage="#{msg.ruaObr}">
-                    </h:inputText>
-                    <h:message for="rua" styleClass="errorMessage"/>
-                </div>
-
-                <div class="form-group">
-                    #{msg.bairro}
-                    <h:inputText styleClass="form-control" id="bairro" label="#{msg.bairro}"
-                                 value="#{cliente.bairro}" required="true"
-                                 requiredMessage="#{msg.bairroObr}">
-                    </h:inputText>
-                    <h:message for="bairro" styleClass="errorMessage"/>
-                </div>
-
-                <div class="form-group">
-                    #{msg.cidade}
-                    <h:inputText styleClass="form-control" id="cidade" label="#{msg.cidade}"
-                                 value="#{cliente.cidade}" required="true"
-                                 requiredMessage="#{msg.cidadeObr}">
-                    </h:inputText>
-                    <h:message for="cidade" styleClass="errorMessage"/>
-                </div>
-
-                <div class="form-group">
-                    #{msg.numero}
-                    <h:inputText styleClass="form-control" id="numero" label="#{msg.numero}"
-                                 value="#{cliente.numero}" required="true"
-                                 requiredMessage="#{msg.numeroObr}">
-                    </h:inputText>
-                    <h:message for="numero" styleClass="errorMessage"/>
-
-                </div>
-                <div class="form-group">
-                #{msg.estado}
-                    <h:selectOneMenu styleClass="form-control" id="estado" value="#{cliente.estado}">
-                        <f:selectItems value="#{beanCliente.estado}"/>
-                    </h:selectOneMenu>
-
-                </div>
 
                 <h:commandButton action="#{beanCliente.insere}" value="Salvar"/>
             </h:form>

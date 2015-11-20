@@ -10,4 +10,6 @@ public class Test {
 
     @Column(unique = true)
     private String email;
+
+
 }
