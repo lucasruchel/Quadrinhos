@@ -56,5 +56,6 @@
     <orderEntry type="library" scope="PROVIDED" name="JBoss 8.2.1.Final - EJB" level="application_server_libraries" />
     <orderEntry type="library" name="Java EE 5-Java EE 5" level="project" />
     <orderEntry type="library" name="JBoss Weld-2.0.3" level="project" />
+    <orderEntry type="library" name="PrimeFaces-5.2" level="project" />
   </component>
 </module>
