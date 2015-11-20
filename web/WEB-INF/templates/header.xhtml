@@ -34,13 +34,19 @@
                                 <li><a href="#">One more separated link</a></li>
                             </ul>
                         </li>
+                        <li>
+                            <a href="#{beanCliente.EditarCliente()}">Editar Cadastro</a>
+                            <!--<h:link target="#{beanCliente.EditarCliente()}"  value="Editar Cadastro" rendered="#{beanCliente.logado}" />-->
+                        </li>
+
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li class="active">
                             <h:form>
-                                <h:commandLink action="admin">
-                                    Admin
+                                <h:commandLink action="login.xhtml">
+                                    Logar
                                 </h:commandLink>
+                                <h3 class="login">#{beanCliente.resp}</h3>
                             </h:form>
 
                         </li>
