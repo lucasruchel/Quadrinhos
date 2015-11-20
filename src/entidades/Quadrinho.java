@@ -30,11 +30,9 @@ public class Quadrinho implements Serializable{
 
     private int nroPaginas;
 
-    @OneToMany
-    private List<Genero> genero;
+    private String genero;
 
-    @ManyToOne
-    private FaixaEtaria faixaEtaria;
+    private String faixaEtaria;
 
     @Enumerated(EnumType.STRING)
     private QuadrinhoEstado estado;
