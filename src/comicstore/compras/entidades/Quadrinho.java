@@ -1,9 +1,8 @@
-package entidades;
+package comicstore.compras.entidades;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by wheezy on 19/11/15.
@@ -20,8 +19,7 @@ public class Quadrinho implements Serializable{
     @Lob
     private String descricao;
 
-    @OneToOne
-    private UploadImage image;
+    private String imagePath;
 
     private float valorCompra;
 
@@ -36,7 +34,11 @@ public class Quadrinho implements Serializable{
     @Enumerated(EnumType.STRING)
     private QuadrinhoEstado estado;
 
+
+    @Temporal(TemporalType.TIMESTAMP)
     private Date dtLancamento;
+
+    @Temporal(TemporalType.TIMESTAMP)
     private Date dtAlteracao;
 
 }

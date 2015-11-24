@@ -1,6 +1,4 @@
-package entidades;
-
-import modelo.Cpf;
+package comicstore.autenticacao.entidades;
 
 import javax.faces.bean.ManagedBean;
 import javax.persistence.*;
@@ -12,7 +10,7 @@ import java.util.Date;
  */
 @Entity
 @NamedQueries({
-        @NamedQuery(name="Cliente.login", query="Select c FROM Cliente c where c.email=:email and c.senha=:senha")})
+        @NamedQuery(name="Cliente.findByEmailSenha", query="Select c FROM Cliente c where c.email=:email and c.senha=:senha")})
 
 @Table(name = "cliente",uniqueConstraints = @UniqueConstraint(columnNames = {"email","cpf"}))
 @ManagedBean(name = "cliente")
@@ -124,7 +122,7 @@ public class Cliente  implements Serializable{
     }
 
     public void setEmail(String email){
-        this.email=email;
+        this.email= email.trim().toLowerCase();
     }
     public String getEmail(){
         return this.email;

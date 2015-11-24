@@ -28,7 +28,7 @@
                 <div class="form-group">
                     #{msg.nome}
                     <h:inputText styleClass="form-control" id="nome" label="#{msg.nome}"
-                                 value="#{cliente.nome}" required="true"
+                                 value="#{beanCliente.cliente.nome}" required="true"
                                  requiredMessage="#{msg.nomeObr}"/>
                     <h:message for="nome" styleClass="errorMessage"/>
                 </div>
@@ -36,7 +36,7 @@
                 <div class="form-group">
                     #{msg.email}
                     <h:inputText styleClass="form-control" id="email" label="#{msg.email}"
-                                 value="#{cliente.email}" required="true"
+                                 value="#{beanCliente.cliente.email}" required="true"
                                  requiredMessage="#{msg.emailObr}">
                         <f:validator validatorId="emailValidator" />
                     </h:inputText>
@@ -46,7 +46,7 @@
                 <div class="form-group">
                     #{msg.pass}
                     <h:inputSecret styleClass="form-control" id="pass" label="#{msg.pass}"
-                                   value="#{cliente.senha}" required="true"
+                                   value="#{beanCliente.cliente.senha}" required="true"
                                    requiredMessage="#{msg.passObr}">
                     </h:inputSecret>
                     <h:message for="pass" styleClass="errorMessage"/>
@@ -55,7 +55,7 @@
                 <div class="form-group">
                     #{msg.cpf}
                     <h:inputText styleClass="form-control" id="cpf" label="#{msg.cpf}"
-                         required="true" value="#{cliente.cpf}"
+                         required="true" value="#{beanCliente.cliente.cpf}"
                          requiredMessage="#{msg.cpfObr}">
                         <f:validator validatorId="cpfvalidor" />
                     </h:inputText>
@@ -64,7 +64,7 @@
                 <div class="form-group">
                     #{msg.telefone}
                     <h:inputText styleClass="form-control" id="telefone" label="#{msg.telefone}"
-                                   value="#{cliente.telefone}" required="true"
+                                   value="#{beanCliente.cliente.telefone}" required="true"
                                    requiredMessage="#{msg.telefoneObr}">
                         <f:validateLength minimum="10" maximum="11"/>
                     </h:inputText>
@@ -75,7 +75,7 @@
                 <div class="form-group">
                     #{msg.cep}
                     <h:inputText styleClass="form-control" id="cep" label="#{msg.cep}"
-                                 value="#{cliente.cep}" required="true"
+                                 value="#{beanCliente.cliente.cep}" required="true"
                                  requiredMessage="#{msg.cepObr}">
                         <f:validateLength minimum="8" maximum="8"/>
                     </h:inputText>
@@ -85,7 +85,7 @@
                 <div class="form-group">
                     #{msg.rua}
                     <h:inputText styleClass="form-control" id="rua" label="#{msg.rua}"
-                                 value="#{cliente.rua}" required="true"
+                                 value="#{beanCliente.cliente.rua}" required="true"
                                  requiredMessage="#{msg.ruaObr}">
                     </h:inputText>
                     <h:message for="rua" styleClass="errorMessage"/>
@@ -94,7 +94,7 @@
                 <div class="form-group">
                     #{msg.bairro}
                     <h:inputText styleClass="form-control" id="bairro" label="#{msg.bairro}"
-                                 value="#{cliente.bairro}" required="true"
+                                 value="#{beanCliente.cliente.bairro}" required="true"
                                  requiredMessage="#{msg.bairroObr}">
                     </h:inputText>
                     <h:message for="bairro" styleClass="errorMessage"/>
@@ -103,7 +103,7 @@
                 <div class="form-group">
                     #{msg.cidade}
                     <h:inputText styleClass="form-control" id="cidade" label="#{msg.cidade}"
-                                 value="#{cliente.cidade}" required="true"
+                                 value="#{beanCliente.cliente.cidade}" required="true"
                                  requiredMessage="#{msg.cidadeObr}">
                     </h:inputText>
                     <h:message for="cidade" styleClass="errorMessage"/>
@@ -112,7 +112,7 @@
                 <div class="form-group">
                     #{msg.numero}
                     <h:inputText styleClass="form-control" id="numero" label="#{msg.numero}"
-                                 value="#{cliente.numero}" required="true"
+                                 value="#{beanCliente.cliente.numero}" required="true"
                                  requiredMessage="#{msg.numeroObr}">
                     </h:inputText>
                     <h:message for="numero" styleClass="errorMessage"/>
@@ -121,12 +121,12 @@
                 <div class="form-group">
                 #{msg.estado}
                     <h:selectOneMenu styleClass="form-control" id="estado" value="#{cliente.estado}">
-                        <f:selectItems value="#{beanCliente.estado}"/>
+                        <f:selectItems value="#{beanCliente.cliente.estado}"/>
                     </h:selectOneMenu>
 
                 </div>
 
-                <h:commandButton action="#{beanCliente.insere}" value="Salvar"/>
+                <h:commandButton action="#{beanCliente.register}" value="Salvar"/>
             </h:form>
         </div>
     </ui:define>

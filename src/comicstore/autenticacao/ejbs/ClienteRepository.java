@@ -1,12 +1,10 @@
-package ejbs;
+package comicstore.autenticacao.ejbs;
 
-import entidades.Cliente;
+import comicstore.autenticacao.entidades.Cliente;
+import comicstore.utils.repository.GenericRepository;
 
 import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import java.io.Serializable;
 
 /**
  * Created by wagner on 18/11/15.
