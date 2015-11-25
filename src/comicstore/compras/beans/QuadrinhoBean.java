@@ -11,9 +11,11 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 import javax.inject.Named;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.io.Serializable;
 
 /**
@@ -28,19 +30,15 @@ public class QuadrinhoBean implements Serializable {
     @EJB
     private QuadrinhoRepository quadrinhoRepository;
 
-    private UploadedFile uploadedImage;
+    @Inject
+    private FileUploadBean fileUploadBean;
 
-    public UploadedFile getUploadedImage() {
-        return uploadedImage;
-    }
-
-    public void setUploadedImage(UploadedFile uploadedImage) {
-        this.uploadedImage = uploadedImage;
-    }
 
     private Quadrinho quadrinho;
 
-    @PostConstruct
+    private UploadedFile uploadedImage;
+
+@PostConstruct
     private void init(){
         this.quadrinho = new Quadrinho();
     }
@@ -53,25 +51,26 @@ public class QuadrinhoBean implements Serializable {
         this.quadrinho = quadrinho;
     }
 
+
+    public UploadedFile getUploadedImage() {
+        return uploadedImage;
+    }
+
+    public void setUploadedImage(UploadedFile uploadedImage) {
+        this.uploadedImage = uploadedImage;
+    }
+
+
+
+
     public String insere(){
-        ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
-        HttpServletResponse response = (HttpServletResponse) externalContext.getResponse();
 
-        FacesContext aFacesContext = FacesContext.getCurrentInstance();
-        ServletContext context = (ServletContext) aFacesContext.getExternalContext().getContext();
+        quadrinhoRepository.create(quadrinho);
 
-        //String realPath = context.getResourcePaths("");
-        String realPath = context.getRealPath("/web/");
-        System.out.println(realPath);
+        String fileName = fileUploadBean.upload(uploadedImage,String.valueOf(quadrinho.getId()));
 
-
-
-
-
-
-
-        //quadrinhoRepository.create(quadrinho);
-
+        quadrinho.setImagePath(fileName);
+        quadrinhoRepository.update(quadrinho);
 
         return "cadastrado";
     }

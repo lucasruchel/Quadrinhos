@@ -1,7 +1,5 @@
-function valida()
+function valida(cpf)
 {
-    alert("Ola");
-    var cpf = "oie";
     cpf = cpf.replace(/[^\d]+/g, '');
 
     if (cpf == '') return false;
@@ -47,4 +45,7 @@ function valida()
         return false;
 
     return true;
+}
+function teste(){
+    alert("Hello world");
 }

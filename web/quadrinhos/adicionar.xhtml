@@ -66,11 +66,12 @@
 
                 <div class="form-group">
                     #{ msg.upload}
-                    <p:fileUpload fileUploadListener="#{quadrinhoBean.handleFileUpload}" value="#{quadrinhoBean.uploadedImage}"
-                                  mode="simple" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
-
-                    <p:growl id="messages" showDetail="true" />
-                </div>
+                    <p:fileUpload value="#{quadrinhoBean.uploadedImage}"
+                                  allowTypes="/(\.|\/)(gif|jpe?g|png)$/" sizeLimit="1000000"
+                                  description="Select Images"
+                                  mode="simple"
+                    />
+               </div>
 
 
 
@@ -78,6 +79,8 @@
 
                 <h:commandButton value="#{Enviar}" action="#{ quadrinhoBean.insere }" />
             </h:form>
+
+
         </div>
 
     </ui:define>
