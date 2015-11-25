@@ -17,6 +17,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by wagner on 24/11/15.
@@ -75,5 +76,8 @@ public class QuadrinhoBean implements Serializable {
         return "cadastrado";
     }
 
+    public List<Quadrinho> buscaQuadrinho(){
+        return quadrinhoRepository.findWithNamedQuery("Quadrinho.findByQuadrinho");
 
+    }
 }

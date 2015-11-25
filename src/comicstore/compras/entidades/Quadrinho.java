@@ -10,7 +10,13 @@ import java.util.Date;
  */
 
 @Entity
-@ManagedBean(name = "quadrinho")
+@NamedQueries({
+        @NamedQuery(
+                name = "Quadrinho.findByQuadrinho",
+                query = "select q from Quadrinho q"
+        )
+
+})
 public class Quadrinho implements Serializable{
     private static final long serialVersionUID = 1L;
 

@@ -19,7 +19,7 @@ import java.io.*;
 @RequestScoped
 public class FileUploadBean implements Serializable{
     private UploadedFile uploadedImage;
-    private String destination="/home/wheezy/AS/files/quadrinhos/images/";
+    private String destination="/data/quadrinhos/";
 
     public UploadedFile getUploadedImage() {
         return uploadedImage;

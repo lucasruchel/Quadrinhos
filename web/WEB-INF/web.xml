@@ -50,6 +50,11 @@
         <url-pattern>/admin/*</url-pattern>
     </filter-mapping>
 
+    <!-- custom tags -->
+    <context-param>
+        <param-name>facelets.LIBRARIES</param-name>
+        <param-value>/WEB-INF/quadrinhos.taglib.xml</param-value>
+    </context-param>
 
 
 
