@@ -2,6 +2,7 @@ package comicstore.compras.beans;
 
 import comicstore.compras.ejbs.QuadrinhoRepository;
 import comicstore.compras.entidades.Quadrinho;
+import comicstore.compras.entidades.QuadrinhoEstado;
 import org.primefaces.model.UploadedFile;
 
 import javax.annotation.PostConstruct;
@@ -17,6 +18,8 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -39,13 +42,17 @@ public class QuadrinhoBean implements Serializable {
 
     private UploadedFile uploadedImage;
 
-@PostConstruct
+    private String genero;
+
+    @PostConstruct
     private void init(){
+
         this.quadrinho = new Quadrinho();
+
     }
 
     public Quadrinho getQuadrinho() {
-        return quadrinho;
+        return this.quadrinho;
     }
 
     public void setQuadrinho(Quadrinho quadrinho) {
@@ -62,7 +69,25 @@ public class QuadrinhoBean implements Serializable {
     }
 
 
+    public List<String> getFaixaEtaria(){
+        List<String> faixasEtarias = new ArrayList<String>();
 
+        faixasEtarias.add("Livre");
+        faixasEtarias.add("6+");
+        faixasEtarias.add("10+");
+        faixasEtarias.add("12+");
+        faixasEtarias.add("14+");
+        faixasEtarias.add("16+");
+        faixasEtarias.add("18+");
+        faixasEtarias.add("65+");
+
+        return faixasEtarias;
+    }
+
+
+    public List<QuadrinhoEstado> getEstados(){
+        return Arrays.asList(QuadrinhoEstado.values());
+    }
 
     public String insere(){
 

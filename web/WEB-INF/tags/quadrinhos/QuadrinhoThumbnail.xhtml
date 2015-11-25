@@ -20,8 +20,8 @@
     <ui:composition>
         <div class="row">
             <ui:repeat value="#{quadrinhos}" var="q">
-            <div class="col-sm-6 col-md-3 col-lg-2">
-                <div class="thumbnail">
+            <div class="col-sm-6 col-md-4 col-lg-4">
+                <div class="thumbnail thumbnail-custom">
                     <h:graphicImage value="#{basePath}#{q.imagePath}" />
                         <div class="caption">
                             <h3>#{q.nome}</h3>

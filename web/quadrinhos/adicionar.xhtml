@@ -12,7 +12,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui" xmlns:f="http://java.sun.com/jsf/core" xmlns:t="http://java.sun.com/jsf/core">
 
 
 <ui:composition template="/WEB-INF/templates/index.xhtml">
@@ -27,41 +27,53 @@
                     #{ msg.nome}
                     <h:inputText id="nome" styleClass="form-control"
                                  value="#{ quadrinhoBean.quadrinho.nome }"/>
+                    <h:message for="nomeObr" styleClass="errorMessage"/>
                 </div>
+
                 <div class="form-group">
                     #{ msg.descricao}
                     <h:inputText id="descricao" styleClass="form-control"
                                  value="#{ quadrinhoBean.quadrinho.descricao }" />
+                    <h:message for="descricaoObr" styleClass="errorMessage"/>
                 </div>
 
                 <div class="form-group">
                     #{ msg.valorCompra}
                     <h:inputText id="valorCompra" styleClass="form-control"
                                  value="#{ quadrinhoBean.quadrinho.valorCompra }" />
+                    <h:message for="valorCompraObr" styleClass="errorMessage"/>
                 </div>
 
                 <div class="form-group">
                     #{ msg.valorVenda}
                     <h:inputText id="valorVenda" styleClass="form-control"
                                  value="#{ quadrinhoBean.quadrinho.valorVenda }" />
+                    <h:message for="valorVendaObr" styleClass="errorMessage"/>
                 </div>
 
                 <div class="form-group">
                     #{ msg.nroPaginas}
                     <h:inputText id="nroPaginas" styleClass="form-control"
                                  value="#{ quadrinhoBean.quadrinho.nroPaginas }" />
+                    <h:message for="nroPaginasObr" styleClass="errorMessage"/>
                 </div>
 
                 <div class="form-group">
                     #{ msg.genero}
                     <h:inputText id="genero" styleClass="form-control"
                                  value="#{ quadrinhoBean.quadrinho.genero }" />
+                    <h:message for="generoObr" styleClass="errorMessage"/>
                 </div>
 
                 <div class="form-group">
-                    #{ msg.faixaEtaria}
-                    <h:inputText id="faixaEtaria" styleClass="form-control"
-                                 value="#{ quadrinhoBean.quadrinho.faixaEtaria }" />
+                    <h:selectOneMenu styleClass="form-control" id="faixaEtaria" value="#{quadrinhoBean.quadrinho.faixaEtaria}">
+                        <f:selectItems value="#{quadrinhoBean.faixaEtaria}" />
+
+
+                    </h:selectOneMenu>
+
+
+
                 </div>
 
                 <div class="form-group">
@@ -69,7 +81,10 @@
                     <p:fileUpload value="#{quadrinhoBean.uploadedImage}"
                                   allowTypes="/(\.|\/)(gif|jpe?g|png)$/" sizeLimit="1000000"
                                   description="Select Images"
+                                  multiple="false"
                                   mode="simple"
+                                  showButtons="false"
+
                     />
                </div>
 
