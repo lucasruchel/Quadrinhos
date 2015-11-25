@@ -1,6 +1,6 @@
 package comicstore.autenticacao.filters;
 
-import comicstore.autenticacao.beans.BeanAutenticacao;
+import comicstore.autenticacao.beans.AutenticacaoBean;
 
 import javax.inject.Inject;
 import javax.servlet.*;
@@ -13,7 +13,7 @@ import java.io.IOException;
  */
 public class LoginFilter implements Filter {
     @Inject
-    BeanAutenticacao beanAutenticacao;
+    AutenticacaoBean autenticacaoBean;
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -27,7 +27,7 @@ public class LoginFilter implements Filter {
         //foi instanciado ou caso a
         //variável loggedIn seja false, assim saberemos que
         // o usuário não está logado
-        if(beanAutenticacao == null || !beanAutenticacao.isLoggedIn()){
+        if(autenticacaoBean == null || !autenticacaoBean.isLoggedIn()){
             String contextPath = ((HttpServletRequest) request).getContextPath();
 
             //Redirecionamos o usuário imediatamente

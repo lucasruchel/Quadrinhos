@@ -27,8 +27,8 @@
                 <div class="form-group">
                     <h:inputSecret styleClass="form-control" id="senha" placeholder="Senha"/>
                 </div>
-                <h:commandButton action="#{beanCliente.login}" value="Enviar" styleClass="btn"/>
-                <p class="login label-warning" >#{beanCliente.resp}</p>
+                <h:commandButton action="#{clienteBean.login}" value="Enviar" styleClass="btn"/>
+                <p class="login label-warning" >#{clienteBean.resp}</p>
             </h:form>
             <h1><a href="register.xhtml">Registre-se</a></h1>
         </div>

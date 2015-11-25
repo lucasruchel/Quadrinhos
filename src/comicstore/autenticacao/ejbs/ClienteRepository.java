@@ -12,19 +12,4 @@ import javax.persistence.Query;
 @Stateless
 public class ClienteRepository extends GenericRepository<Cliente> {
 
-
-
-    public Cliente findByEmailSenha(String email,String senha) {
-        try {
-            Query query = entityManager.createNamedQuery("Cliente.login");
-            query.setParameter("email", email);
-            query.setParameter("senha", senha);
-
-            Cliente cliente = (Cliente) query.getSingleResult();
-            return cliente;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
 }

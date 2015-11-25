@@ -24,9 +24,14 @@ import java.util.Map;
 
 @Named
 @SessionScoped
-public class BeanAutenticacao implements Serializable{
+public class AutenticacaoBean implements Serializable{
     @EJB
     ClienteRepository clienteRepository;
+
+    private boolean loggedIn;
+    private Cliente usuarioLogado;
+    private String email,senha;
+
 
     public boolean isLoggedIn() {
         return loggedIn;
@@ -35,11 +40,6 @@ public class BeanAutenticacao implements Serializable{
     public void setLoggedIn(boolean loggedIn) {
         this.loggedIn = loggedIn;
     }
-
-    private boolean loggedIn;
-    private Cliente usuarioLogado;
-    private String email,senha;
-
 
     public String getEmail() {
         return email;
@@ -74,8 +74,6 @@ public class BeanAutenticacao implements Serializable{
             parameters.put("email",email.trim().toLowerCase());
             parameters.put("senha", StringCipher.convertStringToMd5(senha));
 
-            System.out.println("email = [" + email + "], senha = [" + senha + "]");
-
             List retorno = clienteRepository.findWithNamedQuery("Cliente.findByEmailSenha",parameters);
 
 
@@ -83,8 +81,6 @@ public class BeanAutenticacao implements Serializable{
                 Cliente userFound = (Cliente) retorno.get(0);
 
                 return userFound;
-            }else{
-                System.out.println("email = [" + email + "], senha = [" + senha + "]");
             }
 
             return null;

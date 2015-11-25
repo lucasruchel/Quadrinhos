@@ -21,27 +21,27 @@
         <div class="container form-container">
             <h:form id="j_login" enctype="multipart/form-data" styleClass="form-horizontal">
                 <div class="form-group">
-                    <h:inputText styleClass="form-control" value="#{ beanAutenticacao.email }" />
+                    <h:inputText styleClass="form-control" value="#{ autenticacaoBean.email }" />
                 </div>
                 <div class="form-group">
-                    <h:inputSecret styleClass="form-control" value="#{ beanAutenticacao.senha }"/>
+                    <h:inputSecret styleClass="form-control" value="#{ autenticacaoBean.senha }"/>
                 </div>
 
                 <div class="form-group">
                     <p:commandButton icon="ui-icon-mail-unlocked"
                                      value="Entrar"
-                                     action="#{beanAutenticacao.doLogin}" styleClass="btn"/>
+                                     action="#{autenticacaoBean.doLogin}" styleClass="btn"/>
 
                     <p:commandButton icon="fa-plug"
                                      value="Registrar"
-                                     action="#{beanCliente.insere}" styleClass="btn"/>
+                                     action="#{clienteBean.insere}" styleClass="btn"/>
 
 
 
 
                 </div>
 
-                <p class="login label-warning" >#{beanCliente.resp}</p>
+                <p class="login label-warning" >#{clienteBean.resp}</p>
 
 
 
