@@ -26,7 +26,23 @@
                                     <h:outputText value="#{links.dashboard}"/>
                                 </h:outputLink>
                             </li>
-                            <li><a href="#">Profile</a></li>
+                            <li>
+                                <h:form >
+                                    <h:commandLink  action="#{autenticacaoBean.doLogin()}"
+                                                   rendered="#{ !autenticacaoBean.loggedIn }"
+                                                    styleClass="menu-item">
+                                        <h:outputText value="Login"/>
+                                    </h:commandLink>
+                                    <h:commandLink  action="#{autenticacaoBean.doLogout()}"
+                                                   rendered="#{ autenticacaoBean.loggedIn }"
+                                                    styleClass="menu-item">
+                                        <h:outputText value="Logout"/>
+                                    </h:commandLink>
+                                </h:form>
+                            </li>
+
+
+
 
                         </ul>
                     </div>

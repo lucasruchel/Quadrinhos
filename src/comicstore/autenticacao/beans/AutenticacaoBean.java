@@ -115,6 +115,9 @@ public class AutenticacaoBean implements Serializable{
             loggedIn = true;
             usuarioLogado = usuarioFound;
 
+            this.email = null;
+            this.senha = null;
+
             return "/index.xhtml?faces-redirect=true";
         }
     }
