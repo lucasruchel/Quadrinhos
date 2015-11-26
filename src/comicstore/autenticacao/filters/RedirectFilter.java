@@ -11,7 +11,7 @@ import java.io.IOException;
 /**
  * Created by wheezy on 26/11/15.
  */
-public class AutenticadoFilter implements Filter {
+public class RedirectFilter implements Filter {
     @Inject
     AutenticacaoBean autenticacaoBean;
 
@@ -22,12 +22,11 @@ public class AutenticadoFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        if(autenticacaoBean == null || autenticacaoBean.isLoggedIn()){
+        if(autenticacaoBean == null || !autenticacaoBean.isLoggedIn()){
             String contextPath = ((HttpServletRequest) request).getContextPath();
 
-            //Redirecionamos o usuário imediatamente
-            //para a página de index.xhtml
-            ((HttpServletResponse) response).sendRedirect(contextPath+"/");
+
+            ((HttpServletResponse) response).sendRedirect(contextPath+"/login/login.xhtml");
         }
         else chain.doFilter(request, response);
     }

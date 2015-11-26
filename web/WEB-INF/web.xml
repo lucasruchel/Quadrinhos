@@ -48,6 +48,7 @@
     <filter-mapping>
         <filter-name>LoginFilter</filter-name>
         <url-pattern>/admin/*</url-pattern>
+        <url-pattern>/login/index.xhtml</url-pattern>
     </filter-mapping>
 
     

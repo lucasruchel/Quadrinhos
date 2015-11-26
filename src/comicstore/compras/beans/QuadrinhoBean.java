@@ -8,23 +8,13 @@ import org.primefaces.model.UploadedFile;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
-import javax.faces.context.ExternalContext;
-import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Created by wagner on 24/11/15.
- */
 
 @Named
 @RequestScoped
@@ -105,4 +95,5 @@ public class QuadrinhoBean implements Serializable {
         return quadrinhoRepository.findWithNamedQuery("Quadrinho.findByQuadrinho");
 
     }
+
 }

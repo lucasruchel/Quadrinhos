@@ -11,6 +11,9 @@
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+
         >
     <ui:define name="title">Gizzads - Loja de Quadrinhos</ui:define>
 
@@ -29,7 +32,7 @@
                     #{msg.nome}
                     <h:inputText styleClass="form-control" id="nome" label="#{msg.nome}"
                                  value="#{clienteBean.cliente.nome}" required="true"
-                                 requiredMessage="#{msg.nomeObr}"/>
+                                 requiredMessage="#{msg.nomeObr}" a:placeholder="Digite Seu Nome"/>
                     <h:message for="nome" styleClass="errorMessage"/>
                 </div>
 
@@ -120,13 +123,20 @@
                 </div>
                 <div class="form-group">
                 #{msg.estado}
-                    <h:selectOneMenu styleClass="form-control" id="estado" value="#{cliente.estado}">
-                        <f:selectItems value="#{clienteBean.cliente.estado}"/>
+                    <h:selectOneMenu styleClass="form-control" id="estado" value="#{clienteBean.cliente.estado}">
+                        <f:selectItems value="#{clienteBean.estado}"/>
                     </h:selectOneMenu>
 
                 </div>
 
-                <h:commandButton action="#{clienteBean.register}" value="Salvar"/>
+                <p:commandButton
+                        icon="fa-plug"
+                        styleClass="btn"
+                        action="#{clienteBean.register()}" ajax="false" value="Registrar"/>
+                <p:commandButton
+                        icon="fa-plug"
+                        value="Cancelar"
+                        action="cancelar" styleClass="btn" immediate="true"/>
             </h:form>
         </div>
     </ui:define>

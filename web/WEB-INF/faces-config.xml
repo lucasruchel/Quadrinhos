@@ -9,21 +9,36 @@
             <base-name>resources.messages</base-name>
             <var>msg</var>
         </resource-bundle>
+        <resource-bundle>
+            <base-name>resources.links</base-name>
+            <var>links</var>
+        </resource-bundle>
     </application>
-    <navigation-rule>
-        <from-view-id>../index.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>admin</from-outcome>
-            <to-view-id>../adminIndex.xhtml</to-view-id>
-            <redirect />
-        </navigation-case>
-    </navigation-rule>
+
+    <!-- pages navigations rules -->
     <navigation-rule>
         <from-view-id>/users/register.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>inserted</from-outcome>
-            <to-view-id>/login.xhtml</to-view-id>
+            <to-view-id>/login/login.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 
+    <navigation-rule>
+        <from-view-id>/login/login.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>register</from-outcome>
+            <to-view-id>/users/register.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/users/register.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>cancelar</from-outcome>
+            <to-view-id>/login/login.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
 </faces-config>
