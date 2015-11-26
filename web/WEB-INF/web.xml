@@ -39,7 +39,7 @@
 
 
 
-
+    <!-- FILTERS -->
     <!--  login filter -->
     <filter>
         <filter-name>LoginFilter</filter-name>
@@ -50,6 +50,16 @@
         <url-pattern>/admin/*</url-pattern>
     </filter-mapping>
 
+    
+    <filter>
+        <filter-name>AutenticadoFilter</filter-name>
+        <filter-class>comicstore.autenticacao.filters.AutenticadoFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AutenticadoFilter</filter-name>
+        <url-pattern>/login/login.xhtml</url-pattern>
+        <url-pattern>/users/register.xhtml</url-pattern>
+    </filter-mapping>
     <!-- custom tags -->
     <context-param>
         <param-name>facelets.LIBRARIES</param-name>

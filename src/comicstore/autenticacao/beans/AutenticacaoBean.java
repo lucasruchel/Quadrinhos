@@ -98,7 +98,7 @@ public class AutenticacaoBean implements Serializable{
         Cliente usuarioFound = isUsuarioReadyToLogin(email, senha);
 
 
-        System.out.println("Oi");
+
 
         //Caso não tenha retornado nenhum usuario, então mostramos um erro
         //e redirecionamos ele para a página login.xhtml
@@ -114,8 +114,8 @@ public class AutenticacaoBean implements Serializable{
             //para a página index.xhtml
             loggedIn = true;
             usuarioLogado = usuarioFound;
-            System.out.println(loggedIn);
-            return "/restricted/index.xhtml?faces-redirect=true";
+
+            return "/index.xhtml?faces-redirect=true";
         }
     }
     //Realiza o logout do usuário logado

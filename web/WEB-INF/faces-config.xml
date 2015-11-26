@@ -19,7 +19,7 @@
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
-        <from-view-id>/register.xhtml</from-view-id>
+        <from-view-id>/users/register.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>inserted</from-outcome>
             <to-view-id>/login.xhtml</to-view-id>
