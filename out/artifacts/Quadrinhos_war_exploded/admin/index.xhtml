@@ -1,27 +1,112 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://java.sun.com/jsf/html">
 
-<ui:composition template="/WEB-INF/templates/index.xhtml"
+
+<ui:composition template="/WEB-INF/templates/dashboard/index.xhtml"
                 xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
->
+                xmlns:gizzads="http://gizzads.store/libs"
+        >
     <ui:define name="title">Gizzads - Loja de Quadrinhos</ui:define>
 
 
+    <h:commandButton id="button" action="cliente" value="Clientes"/>
+
     <ui:define name="content">
-        <div class="container">
-            <h1 class="alert-info">Hello World</h1>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <h1 class="page-header">Dashboard</h1>
+
+            <div class="row placeholders">
+
+            </div>
+
+            <h:form>
+                <div class="form-group">
+                    <h:commandButton class="novaquadrinho" styleClass="btn btn-primary" action="nvoquadrinho" value="Inserir um Novo Quadrinho"/>
+                </div>
+                <div class="form-group">
+                    <h:commandButton action="visualiarClientes" styleClass="btn btn-success" value="visualiar Clientes"/>
+                </div>
+
+            </h:form>
+
+            <h2 class="sub-header">Section title</h2>
+            <div class="table-responsive">
+                <p:dataTable value="#{quadrinhoBean.buscaQuadrinho()}" var="q"
+                             id="j_quadrinho" styleClass="table table-striped">
+
+
+                    <h:column>
+                        <f:facet name="header">#{msg.nome}</f:facet>
+                        #{q.nome}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">#{msg.descricao}</f:facet>
+                        #{q.descricao}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">#{msg.valorCompra}</f:facet>
+                        #{q.valorCompra}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">#{msg.valorVenda}</f:facet>
+                        #{q.valorVenda}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">#{msg.nroPaginas}</f:facet>
+                        #{q.nroPaginas}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">#{msg.genero}</f:facet>
+                        #{q.genero}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">#{msg.faixaEtaria}</f:facet>
+                        #{q.faixaEtaria}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">#{msg.estado}</f:facet>
+                        #{q.estado}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">#{msg.dtLancamento}</f:facet>
+                        #{q.dtLancamento}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">#{msg.dtAlteracao}</f:facet>
+                        #{q.dtAlteracao}
+                    </h:column>
+
+                    <h:column>
+                        <h:form>
+                            <h:commandButton action="#{quadrinhoBean.delete(q)}" value="excluir"/>
+                            <h:commandButton action="#{quadrinhoBean.edit(q)}" value="editar"/>
+                        </h:form>
+                    </h:column>
+
+                </p:dataTable>
+            </div>
+        </div>
+
+
+        <div>
+
         </div>
     </ui:define>
+
+    <ui:define name="cliente">
+
+    </ui:define>
+
 </ui:composition>
-
-
 
 </html>

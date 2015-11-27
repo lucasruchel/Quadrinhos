@@ -8,8 +8,12 @@
     max-width: 700px;
     min-height: 200px;
     text-align: center;
-    background: rgba(238, 238, 238, 0.7);
+    background: rgba(238, 238, 238, 0.3);
 }
 .center-block{
 
+}
+
+.novaquadrinho{
+    background-color: #d43f3a;
 }

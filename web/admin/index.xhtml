@@ -30,10 +30,13 @@
             </div>
 
             <h:form>
-                <h:commandButton class="novaquadrinho" style="background-color: green; width: 250px" action="nvoquadrinho" value="Inserir um Novo Quadrinho"/>
-            </h:form>
-            <h:form>
-                <h:commandButton action="visualiarClientes" class="visualiarClientes" style="background-color: green; width: 250px" value="visualiar Clientes"/>
+                <div class="form-group">
+                    <h:commandButton class="novaquadrinho" styleClass="btn btn-primary" action="nvoquadrinho" value="Inserir um Novo Quadrinho"/>
+                </div>
+                <div class="form-group">
+                    <h:commandButton action="visualiarClientes" styleClass="btn btn-success" value="visualiar Clientes"/>
+                </div>
+
             </h:form>
 
             <h2 class="sub-header">Section title</h2>
@@ -41,10 +44,7 @@
                 <p:dataTable value="#{quadrinhoBean.buscaQuadrinho()}" var="q"
                              id="j_quadrinho" styleClass="table table-striped">
 
-                    <h:column>
-                        <f:facet name="header">#{msg.id}</f:facet>
-                        #{q.id}
-                    </h:column>
+
                     <h:column>
                         <f:facet name="header">#{msg.nome}</f:facet>
                         #{q.nome}
