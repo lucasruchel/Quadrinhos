@@ -6,3 +6,20 @@
     width: auto;
     height: 200px !important;
 }
+.cart-icon{
+    background: #2aabd2;
+    border-radius: 20px;
+    border-radius: 45px;
+}
+.cart-icon:hover{
+    background: #2b669a;
+
+}
+
+.thumbnail-caption{
+    text-align: center;
+}
+.thumbnail-description{
+    text-align: center;
+    font-size: 2ex;
+}

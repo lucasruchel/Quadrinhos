@@ -23,14 +23,35 @@
             <div class="col-sm-5 col-md-4 col-lg-4">
                 <div class="thumbnail thumbnail-custom">
                     <h:graphicImage value="#{basePath}#{q.imagePath}" styleClass="img"/>
-                        <div class="caption">
+                        <div class="thumbnail-caption">
                             <h3>#{q.nome}</h3>
-                            <p>#{q.descricao}</p>
-                            <p>
-                                <a href="#" class="btn btn-primary">
-                                    Button
-                                </a>
+                            <p class="thumbnail-description">
+                                #{q.descricao}
                             </p>
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-xs-6">
+                                    <p class="text-center">
+                                        <a href="#" class="img">
+                                            <img src="#{resource['custom/images/cart-icon-48.png']}" class="cart-icon"/>
+                                        </a>
+                                    </p>
+                                    <p class="text-center" >
+                                        <a href="#" class="btn btn-success">
+                                            Ver Mais +
+                                        </a>
+                                    </p>
+                                </div>
+
+                                <div class="col-lg-6 col-md-6 col-xs-6">
+                                    <p>
+                                        Preço
+                                    </p>
+                                    <p>
+                                        #{q.valorVenda}
+                                    </p>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
                 </div>
