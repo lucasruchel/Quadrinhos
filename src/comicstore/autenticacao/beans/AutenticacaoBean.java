@@ -98,16 +98,16 @@ public class AutenticacaoBean implements Serializable{
         Cliente usuarioFound = isUsuarioReadyToLogin(email, senha);
 
 
-
-
         //Caso não tenha retornado nenhum usuario, então mostramos um erro
         //e redirecionamos ele para a página login.xhtml
         //para ele realiza-lo novamente
+
         if (usuarioFound == null){
             FacesContext.getCurrentInstance().validationFailed();
 
             return "/login/login.xhtml?faces-redirect=true";
-        }else{
+        }
+        else{
             //caso tenha retornado um usuario, setamos a variável loggedIn
             //como true e guardamos o usuario encontrado na variável
             //usuarioLogado. Depois de tudo, mandamos o usuário
@@ -115,8 +115,12 @@ public class AutenticacaoBean implements Serializable{
             loggedIn = true;
             usuarioLogado = usuarioFound;
 
-            this.email = null;
-            this.senha = null;
+            this.email = "";
+            this.senha = "";
+
+            if(usuarioFound.isAdm()==true){
+                return "admin";
+            }
 
             return "/index.xhtml?faces-redirect=true";
         }

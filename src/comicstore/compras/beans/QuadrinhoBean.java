@@ -8,6 +8,7 @@ import org.primefaces.model.UploadedFile;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
@@ -17,7 +18,7 @@ import java.util.List;
 
 
 @Named
-@RequestScoped
+@SessionScoped
 public class QuadrinhoBean implements Serializable {
 
 
@@ -80,15 +81,27 @@ public class QuadrinhoBean implements Serializable {
     }
 
     public String insere(){
-
-        quadrinhoRepository.create(quadrinho);
+        if(quadrinho.getId() == 0)
+            quadrinhoRepository.create(quadrinho);
 
         String fileName = fileUploadBean.upload(uploadedImage,String.valueOf(quadrinho.getId()));
 
         quadrinho.setImagePath(fileName);
         quadrinhoRepository.update(quadrinho);
 
+        quadrinho = new Quadrinho();
+
         return "cadastrado";
+    }
+    public String delete (Quadrinho quadrinho){
+        this.quadrinhoRepository.delete(Quadrinho.class,quadrinho.getId());
+        return "deletado";
+    }
+
+    public String edit (Quadrinho quadrinho){
+        this.quadrinho = quadrinho;
+
+        return "editar";
     }
 
     public List<Quadrinho> buscaQuadrinho(){

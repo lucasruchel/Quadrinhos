@@ -28,6 +28,8 @@ public class Cliente  implements Serializable{
     @Column(nullable = false)
     private String email;
 
+    private boolean isAdm=false;
+
     @Column(nullable = false)
     private String senha;
     private Date dataCadastro;
@@ -147,5 +149,13 @@ public class Cliente  implements Serializable{
     }
     public Date getDataAlteracao(){
         return this.dataAlteracao;
+    }
+
+    public boolean isAdm() {
+        return isAdm;
+    }
+
+    public void setIsAdm(boolean isAdm) {
+        this.isAdm = isAdm;
     }
 }

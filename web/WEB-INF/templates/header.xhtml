@@ -22,7 +22,8 @@
                                 </h:outputLink>
                             </li>
                             <li>
-                                <h:outputLink  value="#{links.serverLocation}#{links.application}#{links.userHome}">
+                                <h:outputLink  value="#{links.serverLocation}#{links.application}#{links.userHome}"
+                                                rendered="#{autenticacaoBean.loggedIn}">
                                     <h:outputText value="#{links.dashboard}"/>
                                 </h:outputLink>
                             </li>
