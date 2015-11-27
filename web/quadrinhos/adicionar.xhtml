@@ -25,6 +25,8 @@
     <ui:define name="content">
         <div class="container form-container">
             <h:form enctype="multipart/form-data" styleClass="form-horizontal" id="j_quadrinho">
+                <f:event type="postValidate" listener="#{quadrinhoBean.validateValor}" />
+
                 <div class="form-group">
                     #{ msg.nome}
                     <h:inputText id="nome" styleClass="form-control"

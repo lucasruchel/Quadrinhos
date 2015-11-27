@@ -10,7 +10,10 @@ import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
+import javax.faces.component.UIComponent;
+import javax.faces.component.UIInput;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ComponentSystemEvent;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
@@ -82,10 +85,10 @@ public class QuadrinhoBean implements Serializable {
     }
 
     public String insere(){
-        if(quadrinho.getValorCompra()>quadrinho.getValorVenda()){
+        /*if(quadrinho.getValorCompra()>quadrinho.getValorVenda()){
             FacesContext.getCurrentInstance().addMessage("j_quadrinho:valorVenda", new FacesMessage("Valor de Venda não Pode ser menor que o de compra!"));
             return null;
-        }
+        }*/
 
         if(quadrinho.getId() == 0)
             quadrinhoRepository.create(quadrinho);
@@ -113,6 +116,24 @@ public class QuadrinhoBean implements Serializable {
     public List<Quadrinho> buscaQuadrinho(){
         return quadrinhoRepository.findWithNamedQuery("Quadrinho.findByQuadrinho");
 
+    }
+    public void validateValor(ComponentSystemEvent event){
+        UIComponent source = event.getComponent();
+        UIInput vlCompra = (UIInput) source.findComponent("valorCompra");
+        UIInput vlVenda = (UIInput) source.findComponent("valorVenda");
+
+
+        float v1 = ((Float) vlCompra.getLocalValue()).floatValue();
+        float v2 = ((Float) vlVenda.getLocalValue()).floatValue();
+        System.out.println(v1+"  ............................. "+v2);
+
+        if (v1 > v2) {
+            FacesContext.getCurrentInstance().addMessage("j_quadrinho:valorVenda", new FacesMessage("Valor de Venda não Pode ser menor que o de compra!"));
+
+            FacesContext context = FacesContext.getCurrentInstance();
+
+            context.renderResponse();
+        }
     }
 
 }

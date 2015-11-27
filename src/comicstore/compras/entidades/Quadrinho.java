@@ -11,11 +11,11 @@ import java.util.Date;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(
-                name = "Quadrinho.findByQuadrinho",
-                query = "select q from Quadrinho q"
-        )
-
+        @NamedQuery(name = "Quadrinho.findByQuadrinho", query = "select q from Quadrinho q"),
+        @NamedQuery(name = "Quadrinho.findByQuadrinhoFiltro", query = "select q from Quadrinho q where q.nome Like :campo "+
+                                                                                                        "or q.descricao Like :campo "+
+                                                                                                        "or q.estado Like :campo "+
+                                                                                                        "or q.genero Like :campo")
 })
 public class Quadrinho implements Serializable{
     private static final long serialVersionUID = 1L;

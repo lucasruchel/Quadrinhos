@@ -16,14 +16,22 @@
     <ui:define name="title">Gizzads - Loja de Quadrinhos</ui:define>
 
     <ui:define name="content">
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h1 class="page-header">Dashboard</h1>
+        <div class="col">
+            <h1 class="page-header">Apresentar todos os usuários do Sistema</h1>
 
-            <div class="row placeholders"></div>
+            <h:form>
+                <h:inputText value="#{reportsBean.campo}" id="campo"/>
+                <p:commandButton action="#{reportsBean.buscaClienteCampo()}" var="c" value="Buscar"/>
+            </h:form>
 
-            <h2 class="sub-header">Section title</h2>
+            <ui:define name="conteudo">
+                Historinha dos animais
+            </ui:define>
+
+
             <div class="table-responsive">
-                <p:dataTable value="#{clienteBean.buscaCliente()}" var="c" id="j_cliente" border="1" styleClass="table table-striped">
+
+                <p:dataTable value="#{reportsBean.buscaClienteCampo()}" var="c" id="j_cliente" styleClass="table table-striped">
 
                     <h:column>
                         <f:facet name="header">#{msg.id}</f:facet>
@@ -74,20 +82,10 @@
                         #{c.numero}
                     </h:column>
 
-                    <h:column>
-                        <h:form>
-                            <h:commandButton action="#{quadrinhoBean.edit(q)}" value="editar"/>
-                        </h:form>
-                    </h:column>
-
                 </p:dataTable>
             </div>
         </div>
 
-
-        <div>
-
-        </div>
     </ui:define>
 
     <ui:define name="cliente">

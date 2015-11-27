@@ -23,7 +23,7 @@
 
     <ui:define name="content">
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h1 class="page-header">Dashboard</h1>
+            <h1 class="page-header">Todos os Quadrinho Cadastrados no Sistema</h1>
 
             <div class="row placeholders">
 
@@ -40,8 +40,13 @@
             </h:form>
 
             <h2 class="sub-header">Section title</h2>
+            <h:form>
+                <h:inputText value="#{reportsBean.campo}" id="campo"/>
+                <p:commandButton action="#{reportsBean.buscaQuadrinhoCampo()}" var="q" value="Buscar"/>
+            </h:form>
+
             <div class="table-responsive">
-                <p:dataTable value="#{quadrinhoBean.buscaQuadrinho()}" var="q"
+                <p:dataTable value="#{reportsBean.buscaQuadrinhoCampo()}" var="q"
                              id="j_quadrinho" styleClass="table table-striped">
 
 
