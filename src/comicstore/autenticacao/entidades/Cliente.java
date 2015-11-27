@@ -10,7 +10,8 @@ import java.util.Date;
  */
 @Entity
 @NamedQueries({
-        @NamedQuery(name="Cliente.findByEmailSenha", query="Select c FROM Cliente c where c.email=:email and c.senha=:senha")})
+        @NamedQuery(name="Cliente.findByEmailSenha", query="Select c FROM Cliente c where c.email=:email and c.senha=:senha"),
+        @NamedQuery(name="Cliente.findByCliente", query="Select c FROM Cliente c")})
 
 @Table(name = "cliente",uniqueConstraints = @UniqueConstraint(columnNames = {"email","cpf"}))
 @ManagedBean(name = "cliente")

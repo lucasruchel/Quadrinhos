@@ -78,7 +78,25 @@
             <to-view-id>/quadrinhos/adicionar.xhtml</to-view-id>
             <redirect />
         </navigation-case>
+        <navigation-case>
+            <from-outcome>nvoquadrinho</from-outcome>
+            <to-view-id>/quadrinhos/adicionar.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>visualiarClientes</from-outcome>
+            <to-view-id>/users/apresentaCliente.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
 
+    <navigation-rule>
+        <from-view-id>/quadrinhos/adicionar.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>cadastrado</from-outcome>
+            <to-view-id>/admin/index.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
     </navigation-rule>
 
 </faces-config>

@@ -8,6 +8,7 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://java.sun.com/jsf/html">
 
+
 <ui:composition template="/WEB-INF/templates/dashboard/index.xhtml"
                 xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:f="http://java.sun.com/jsf/core"
@@ -16,7 +17,6 @@
                 xmlns:gizzads="http://gizzads.store/libs"
         >
     <ui:define name="title">Gizzads - Loja de Quadrinhos</ui:define>
-
 
 
     <h:commandButton id="button" action="cliente" value="Clientes"/>
@@ -28,6 +28,13 @@
             <div class="row placeholders">
 
             </div>
+
+            <h:form>
+                <h:commandButton class="novaquadrinho" style="background-color: green; width: 250px" action="nvoquadrinho" value="Inserir um Novo Quadrinho"/>
+            </h:form>
+            <h:form>
+                <h:commandButton action="visualiarClientes" class="visualiarClientes" style="background-color: green; width: 250px" value="visualiar Clientes"/>
+            </h:form>
 
             <h2 class="sub-header">Section title</h2>
             <div class="table-responsive">

@@ -9,6 +9,8 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
@@ -39,7 +41,6 @@ public class QuadrinhoBean implements Serializable {
     private void init(){
 
         this.quadrinho = new Quadrinho();
-
     }
 
     public Quadrinho getQuadrinho() {
@@ -81,6 +82,10 @@ public class QuadrinhoBean implements Serializable {
     }
 
     public String insere(){
+        if(quadrinho.getValorCompra()>quadrinho.getValorVenda()){
+            FacesContext.getCurrentInstance().addMessage("j_quadrinho:valorVenda", new FacesMessage("Valor de Venda não Pode ser menor que o de compra!"));
+            return null;
+        }
         if(quadrinho.getId() == 0)
             quadrinhoRepository.create(quadrinho);
 

@@ -9,13 +9,13 @@
         PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://java.sun.com/jsf/core"
     >
-
 
 <ui:composition template="/WEB-INF/templates/index.xhtml">
     <ui:define name="title">
@@ -42,14 +42,14 @@
                 <div class="form-group">
                     #{ msg.valorCompra}
                     <h:inputText id="valorCompra" styleClass="form-control"
-                                 value="#{ quadrinhoBean.quadrinho.valorCompra }" />
+                                 value="#{ quadrinhoBean.quadrinho.valorCompra }" required="true"/>
                     <h:message for="valorCompra" styleClass="errorMessage"/>
                 </div>
 
                 <div class="form-group">
                     #{ msg.valorVenda}
                     <h:inputText id="valorVenda" styleClass="form-control"
-                                 value="#{ quadrinhoBean.quadrinho.valorVenda }" />
+                                 value="#{ quadrinhoBean.quadrinho.valorVenda }" required="true" />
                     <h:message for="valorVenda" styleClass="errorMessage"/>
                 </div>
 
@@ -105,7 +105,6 @@
         </div>
 
     </ui:define>
-
 
 </ui:composition>
 

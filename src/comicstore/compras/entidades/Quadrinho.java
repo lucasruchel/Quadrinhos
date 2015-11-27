@@ -97,7 +97,8 @@ public class Quadrinho implements Serializable{
     }
 
     public void setValorVenda(float valorVenda) {
-        this.valorVenda = valorVenda;
+            this.valorVenda = valorVenda;
+
     }
 
     public int getNroPaginas() {
