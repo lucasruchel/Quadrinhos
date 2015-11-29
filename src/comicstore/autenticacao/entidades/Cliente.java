@@ -112,7 +112,6 @@ public class Cliente  implements Serializable{
     }
 
     public void setTelefone(String telefone) {
-
         TelefoneConverter fone=new TelefoneConverter();
         this.telefone = fone.TelefoneConverter(telefone);
     }
@@ -124,7 +123,7 @@ public class Cliente  implements Serializable{
 
     public void setCpf(String CPF) {
         CpfConversor converter=new CpfConversor();
-        this.cpf = converter.converterCPF(CPF);//CPF.substring(0, 3) + "." + CPF.substring(3, 6) + "." + CPF.substring(6, 9) + "-" + CPF.substring(9, 11));
+        this.cpf = converter.converterCPF(CPF);
     }
 
     public int getId_cliente() {

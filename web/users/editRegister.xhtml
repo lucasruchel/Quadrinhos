@@ -32,7 +32,7 @@
                 <div class="form-group">
                     #{msg.nome}
                     <h:inputText styleClass="form-control" id="nome" label="#{msg.nome}"
-                                 value="#{clienteBean.cliente.nome}" required="true"
+                                 value="#{autenticacaoBean.usuarioLogado.nome}" required="true"
                                  requiredMessage="#{msg.nomeObr}" a:placeholder="Digite Seu Nome"/>
                     <h:message for="nome" styleClass="errorMessage"/>
                 </div>
@@ -40,7 +40,7 @@
                 <div class="form-group">
                     #{msg.email}
                     <h:inputText styleClass="form-control" id="email" label="#{msg.email}"
-                                 value="#{clienteBean.cliente.email}" required="true"
+                                 value="#{autenticacaoBean.usuarioLogado.email}" required="true"
                                  requiredMessage="#{msg.emailObr}">
                         <f:validator validatorId="emailValidator" />
                     </h:inputText>
@@ -50,7 +50,7 @@
                 <div class="form-group">
                     #{msg.pass}
                     <h:inputSecret styleClass="form-control" id="pass" label="#{msg.pass}"
-                                   value="#{clienteBean.cliente.senha}" required="true"
+                                   value="#{autenticacaoBean.usuarioLogado.senha}" required="true"
                                    requiredMessage="#{msg.passObr}">
                     </h:inputSecret>
                     <h:message for="pass" styleClass="errorMessage"/>
@@ -59,7 +59,7 @@
                 <div class="form-group">
                     #{msg.cpf}
                     <h:inputText styleClass="form-control" id="cpf" label="#{msg.cpf}"
-                                 required="true" value="#{clienteBean.cliente.cpf}"
+                                 required="true" value="#{autenticacaoBean.usuarioLogado.cpf}"
                                  requiredMessage="#{msg.cpfObr}">
                         <f:validator validatorId="cpfvalidor" />
                     </h:inputText>
@@ -68,7 +68,7 @@
                 <div class="form-group">
                     #{msg.telefone} Ex.:XX XXXXXXXX
                     <h:inputText styleClass="form-control" id="telefone" label="#{msg.telefone}"
-                                 value="#{clienteBean.cliente.telefone}" required="true"
+                                 value="#{autenticacaoBean.usuarioLogado.telefone}" required="true"
                                  requiredMessage="#{msg.telefoneObr}">
                         <f:validateLength minimum="11" maximum="12"/>
                     </h:inputText>
@@ -79,7 +79,7 @@
                 <div class="form-group">
                     #{msg.cep}
                     <h:inputText styleClass="form-control" id="cep" label="#{msg.cep}"
-                                 value="#{clienteBean.cliente.cep}" required="true"
+                                 value="#{autenticacaoBean.usuarioLogado.cep}" required="true"
                                  requiredMessage="#{msg.cepObr}">
                         <f:validateLength minimum="8" maximum="8"/>
                     </h:inputText>
@@ -89,7 +89,7 @@
                 <div class="form-group">
                     #{msg.rua}
                     <h:inputText styleClass="form-control" id="rua" label="#{msg.rua}"
-                                 value="#{clienteBean.cliente.rua}" required="true"
+                                 value="#{autenticacaoBean.usuarioLogado.rua}" required="true"
                                  requiredMessage="#{msg.ruaObr}">
                     </h:inputText>
                     <h:message for="rua" styleClass="errorMessage"/>
@@ -98,7 +98,7 @@
                 <div class="form-group">
                     #{msg.bairro}
                     <h:inputText styleClass="form-control" id="bairro" label="#{msg.bairro}"
-                                 value="#{clienteBean.cliente.bairro}" required="true"
+                                 value="#{autenticacaoBean.usuarioLogado.bairro}" required="true"
                                  requiredMessage="#{msg.bairroObr}">
                     </h:inputText>
                     <h:message for="bairro" styleClass="errorMessage"/>
@@ -107,7 +107,7 @@
                 <div class="form-group">
                     #{msg.cidade}
                     <h:inputText styleClass="form-control" id="cidade" label="#{msg.cidade}"
-                                 value="#{clienteBean.cliente.cidade}" required="true"
+                                 value="#{autenticacaoBean.usuarioLogado.cidade}" required="true"
                                  requiredMessage="#{msg.cidadeObr}">
                     </h:inputText>
                     <h:message for="cidade" styleClass="errorMessage"/>
@@ -116,7 +116,7 @@
                 <div class="form-group">
                     #{msg.numero}
                     <h:inputText styleClass="form-control" id="numero" label="#{msg.numero}"
-                                 value="#{clienteBean.cliente.numero}" required="true"
+                                 value="#{autenticacaoBean.usuarioLogado.numero}" required="true"
                                  requiredMessage="#{msg.numeroObr}">
                     </h:inputText>
                     <h:message for="numero" styleClass="errorMessage"/>
@@ -124,7 +124,7 @@
                 </div>
                 <div class="form-group">
                     #{msg.estado}
-                    <h:selectOneMenu styleClass="form-control" id="estado" value="#{clienteBean.cliente.estado}">
+                    <h:selectOneMenu styleClass="form-control" id="estado" value="#{autenticacaoBean.usuarioLogado.estado}">
                         <f:selectItems value="#{clienteBean.estado}"/>
                     </h:selectOneMenu>
 
@@ -133,7 +133,7 @@
                 <p:commandButton
                         icon="fa-plug"
                         styleClass="btn"
-                        action="#{clienteBean.register()}" ajax="false" value="Registrar"/>
+                        action="#{clienteBean.update()}" ajax="false" value="Registrar"/>
                 <p:commandButton
                         icon="fa-plug"
                         value="Cancelar"

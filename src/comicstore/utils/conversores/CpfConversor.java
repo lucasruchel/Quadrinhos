@@ -3,8 +3,8 @@ package comicstore.utils.conversores;
 /**
  * Created by wagner on 28/11/15.
  */
-public class CpfConversor {
-    public CpfConversor() {
+public class CpfConversor{
+    public CpfConversor(){
     }
     public String converterCPF(String CPF){
         String cpf="";

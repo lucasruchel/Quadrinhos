@@ -114,6 +114,13 @@
             <to-view-id>/users/index.xhtml</to-view-id>
         </navigation-case>
 
+        <navigation-case>
+            <from-outcome>editRegister</from-outcome>
+            <to-view-id>/users/editRegister.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
+
+
+
 
 </faces-config>
