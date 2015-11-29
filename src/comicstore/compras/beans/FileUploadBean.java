@@ -11,6 +11,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import java.io.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by wheezy on 25/11/15.
@@ -39,6 +41,13 @@ public class FileUploadBean implements Serializable{
         String fullFileName = fileName+"."+extension;
 
         // Do what you want with the file
+
+
+
+        if(!validaExtensao(extension)){
+            return "error";
+        }
+
         try {
             copyFile(fullFileName, file.getInputstream());
         } catch (IOException e) {
@@ -47,6 +56,16 @@ public class FileUploadBean implements Serializable{
 
         return fullFileName;
     }
+
+
+    public boolean validaExtensao(String extension){
+        Pattern p = Pattern.compile("jpg|png|gif|jpeg");
+        Matcher m = p.matcher(extension);
+
+        return m.matches();
+    }
+
+
     public void copyFile(String fileName, InputStream in) {
 
         try {

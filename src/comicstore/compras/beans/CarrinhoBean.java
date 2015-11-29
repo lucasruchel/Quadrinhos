@@ -53,8 +53,7 @@ public class CarrinhoBean implements Serializable{
     }
 
 
-    public List listCart(){
-
+    public List<CompraProduto> listCart(){
         return produtos;
     }
 

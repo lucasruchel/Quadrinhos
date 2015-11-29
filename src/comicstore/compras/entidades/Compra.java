@@ -1,8 +1,10 @@
 package comicstore.compras.entidades;
 
 import comicstore.autenticacao.entidades.Cliente;
+import org.omg.CORBA.PERSIST_STORE;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -19,12 +21,24 @@ public class Compra {
     @ManyToOne()
     private Cliente cliente;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<CompraProduto> produtos;
 
     private boolean quitada=false;
 
     private boolean entregue=false;
+
+    public Date getDtCompra() {
+        return dtCompra;
+    }
+
+    public void setDtCompra(Date dtCompra) {
+        this.dtCompra = dtCompra;
+    }
+
+    @Temporal(TemporalType.DATE)
+
+    private Date dtCompra;
 
 
 

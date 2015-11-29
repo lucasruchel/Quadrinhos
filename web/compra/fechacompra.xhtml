@@ -2,8 +2,8 @@
 <!--
   Created by IntelliJ IDEA.
   User: wheezy
-  Date: 26/11/15
-  Time: 14:28
+  Date: 29/11/15
+  Time: 13:46
 -->
 <!DOCTYPE html
         PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -15,12 +15,21 @@
 >
 
 <ui:composition template="/WEB-INF/templates/dashboard/index.xhtml">
-
-
     <ui:define name="dashboard-opcoes">
         <ui:include src="../WEB-INF/templates/dashboard/clienteOpcoes.xhtml" />
     </ui:define>
 
+    <ui:define name="content">
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+
+        <h:form>
+            <h:commandButton action="#{compraBean.fechaCompra() }" value="Fecha Compra"
+                             styleClass="btn btn-danger" />
+        </h:form>
+
+        </div>
+    </ui:define>
 
 </ui:composition>
 

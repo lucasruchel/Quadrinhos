@@ -142,4 +142,10 @@ public class QuadrinhoBean implements Serializable {
         }
     }
 
+    public String vermais(Quadrinho quadrinho){
+        this.quadrinho = quadrinho;
+
+        return "vermais";
+    }
+
 }

@@ -1,6 +1,9 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
-                xmlns:h="http://xmlns.jcp.org/jsf/html">
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+                xmlns:p="http://primefaces.org/ui"
+>
 
         <nav class="navbar navbar-default navbar-fixed-top">
 
@@ -16,7 +19,13 @@
                 <div id="navbar" class="navbar-collapse collapse">
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
-
+                            <li>
+                                <h:link outcome="cart-itens">
+                                    <h:graphicImage
+                                            value="/resources/custom/images/cart-icon-32.png"
+                                            styleClass="cart-icon"/>
+                                </h:link>
+                            </li>
                             <li>
                                 <h:outputLink  value="#{links.serverLocation}#{links.application}">
                                     <h:outputText value="#{msg.home}"/>
@@ -40,10 +49,21 @@
                                 </h:form>
                             </li>
 
-
-
-
                         </ul>
+
+                        <h:form styleClass="navbar-form navbar-right">
+                            <p:defaultCommand target="search" />
+
+                            <h:inputText styleClass="form-control" value="#{reportsBean.campo}" id="campo" onchange="#{reportsBean.buscaClienteCampo()}" a:placeholder="Search..."/>
+
+
+                            <h:commandButton action="#{quadrinhoBean.buscaQuadrinho() }"
+                                             id="search" rendered="false" />
+                        </h:form>
+
+
+
+
                     </div>
                 </div>
 
