@@ -90,18 +90,25 @@ public class QuadrinhoBean implements Serializable {
             return null;
         }*/
 
+
+
         if(quadrinho.getId() == 0)
             quadrinhoRepository.create(quadrinho);
 
-        String fileName = fileUploadBean.upload(uploadedImage,String.valueOf(quadrinho.getId()));
 
-        quadrinho.setImagePath(fileName);
+        if(uploadedImage.getSize() > 0){
+            String fileName = fileUploadBean.upload(uploadedImage,String.valueOf(quadrinho.getId()));
+            quadrinho.setImagePath(fileName);
+        }
+
         quadrinhoRepository.update(quadrinho);
 
         quadrinho = new Quadrinho();
 
         return "cadastrado";
     }
+
+
     public String delete (Quadrinho quadrinho){
         this.quadrinhoRepository.delete(Quadrinho.class,quadrinho.getId());
         return "deletado";
@@ -125,7 +132,6 @@ public class QuadrinhoBean implements Serializable {
 
         float v1 = ((Float) vlCompra.getLocalValue()).floatValue();
         float v2 = ((Float) vlVenda.getLocalValue()).floatValue();
-        System.out.println(v1+"  ............................. "+v2);
 
         if (v1 > v2) {
             FacesContext.getCurrentInstance().addMessage("j_quadrinho:valorVenda", new FacesMessage("Valor de Venda não Pode ser menor que o de compra!"));

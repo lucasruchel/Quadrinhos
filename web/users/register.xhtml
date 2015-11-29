@@ -65,11 +65,11 @@
                     <h:message for="cpf" styleClass="errorMessage"/>
                 </div>
                 <div class="form-group">
-                    #{msg.telefone}
+                    #{msg.telefone} Ex.:XX XXXXXXXX
                     <h:inputText styleClass="form-control" id="telefone" label="#{msg.telefone}"
                                    value="#{clienteBean.cliente.telefone}" required="true"
                                    requiredMessage="#{msg.telefoneObr}">
-                        <f:validateLength minimum="10" maximum="11"/>
+                        <f:validateLength minimum="11" maximum="12"/>
                     </h:inputText>
                     <h:message for="telefone" styleClass="errorMessage"/>
 

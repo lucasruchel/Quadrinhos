@@ -1,5 +1,10 @@
 package comicstore.autenticacao.entidades;
 
+
+
+import comicstore.utils.conversores.CpfConversor;
+import comicstore.utils.conversores.TelefoneConverter;
+
 import javax.faces.bean.ManagedBean;
 import javax.persistence.*;
 import java.io.Serializable;
@@ -11,7 +16,7 @@ import java.util.Date;
 @Entity
 @NamedQueries({
         @NamedQuery(name="Cliente.findByEmailSenha", query="Select c FROM Cliente c where c.email=:email and c.senha=:senha"),
-        @NamedQuery(name="Cliente.findByCliente", query="Select c FROM Cliente c"),
+        @NamedQuery(name="Cliente.findByCliente", query="Select c FROM Cliente c order by c.nome"),
         @NamedQuery(name="Cliente.findByClienteFiltro", query="Select c FROM Cliente c where c.nome Like :campo "+
                                                               "or c.cidade Like :campo "+
                                                               "or c.bairro Like :campo "+
@@ -99,7 +104,7 @@ public class Cliente  implements Serializable{
     }
 
     public void setCep(String cep) {
-        this.cep = cep;
+        this.cep = (cep.substring(0,2)+"."+cep.substring(2,5)+"-"+cep.substring(5, 8));
     }
 
     public String getTelefone() {
@@ -107,15 +112,19 @@ public class Cliente  implements Serializable{
     }
 
     public void setTelefone(String telefone) {
-        this.telefone = telefone;
+
+        TelefoneConverter fone=new TelefoneConverter();
+        this.telefone = fone.TelefoneConverter(telefone);
     }
 
     public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+
+    public void setCpf(String CPF) {
+        CpfConversor converter=new CpfConversor();
+        this.cpf = converter.converterCPF(CPF);//CPF.substring(0, 3) + "." + CPF.substring(3, 6) + "." + CPF.substring(6, 9) + "-" + CPF.substring(9, 11));
     }
 
     public int getId_cliente() {

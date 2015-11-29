@@ -24,11 +24,6 @@
                 <p:commandButton action="#{reportsBean.buscaClienteCampo()}" var="c" value="Buscar"/>
             </h:form>
 
-            <ui:define name="conteudo">
-                Historinha dos animais
-            </ui:define>
-
-
             <div class="table-responsive">
 
                 <p:dataTable value="#{reportsBean.buscaClienteCampo()}" var="c" id="j_cliente" styleClass="table table-striped">

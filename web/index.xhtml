@@ -28,9 +28,13 @@
     <ui:define name="content">
         <div class="container">
 
-            <gizzads:quadrinhoThumb quadrinhos="#{quadrinhoBean.buscaQuadrinho() }"
-                                    basePath="http://localhost:8080/images/" />
 
+            <h:form>
+                <h:inputText style="align-content: center" styleClass=" btn-default btn-lg" value="#{reportsBean.campo}" id="campo"/>
+                <h:commandButton styleClass="btn btn-success btn-lg" action="#{reportsBean.buscaClienteCampo()}" var="c" value="Buscar"/>
+            </h:form>
+            <gizzads:quadrinhoThumb quadrinhos="#{reportsBean.buscaQuadrinhoCampo() }"
+                                    basePath="http://localhost:8080/images/" />
         </div>
     </ui:define>
 </ui:composition>

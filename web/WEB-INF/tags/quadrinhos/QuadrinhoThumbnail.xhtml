@@ -15,8 +15,6 @@
 >
 
 
-
-
     <ui:composition>
         <div class="row">
             <ui:repeat value="#{quadrinhos}" var="q">
@@ -31,12 +29,28 @@
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-xs-6">
                                     <p class="text-center">
-                                        <a href="#" class="img">
-                                            <img src="#{resource['custom/images/cart-icon-48.png']}" class="cart-icon"/>
-                                        </a>
+                                        <h:form>
+                                            <h:commandLink action="#{carrinhoBean.addtoCart(q)}">
+                                                <h:graphicImage
+                                                                value="/resources/custom/images/cart-icon-48.png"
+                                                                styleClass="cart-icon"/>
+                                            </h:commandLink>
+
+
+
+
+
+
+                                        </h:form>
+
+
                                     </p>
                                     <p class="text-center" >
-                                        <a href="#" class="btn btn-success">
+                                        <h:form>
+                                            <h:commandButton class="btn btn-success"
+                                                             action="#" value="Ver Mais"/>
+                                        </h:form>
+                                        <a href="/Quadrinhos_war_exploded/quadrinhos/verMaisQuadrinho.xhtml" class="btn btn-success">
                                             Ver Mais +
                                         </a>
                                     </p>

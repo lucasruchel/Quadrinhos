@@ -22,6 +22,14 @@ public class CompraProduto {
     private Date timestamp;
 
 
+    public CompraProduto() {}
+
+    public CompraProduto(int quantidade, Quadrinho quadrinho, Date timestamp) {
+        this.quantidade = quantidade;
+        this.quadrinho = quadrinho;
+        this.timestamp = timestamp;
+    }
+
     public int getQuantidade() {
         return quantidade;
     }

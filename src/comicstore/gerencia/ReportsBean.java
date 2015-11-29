@@ -3,6 +3,8 @@ package comicstore.gerencia;
 import comicstore.autenticacao.ejbs.ClienteRepository;
 import comicstore.autenticacao.entidades.Cliente;
 import comicstore.compras.ejbs.QuadrinhoRepository;
+import comicstore.compras.entidades.Compra;
+import comicstore.compras.entidades.CompraProduto;
 import comicstore.compras.entidades.Quadrinho;
 
 import javax.ejb.EJB;
@@ -58,8 +60,9 @@ public class ReportsBean implements Serializable{
 
             return quadrinhoRepository.findWithNamedQuery("Quadrinho.findByQuadrinhoFiltro",parameters);
         }
-
-
-
     }
+    public List<Compra> buscaCompras(){
+            return quadrinhoRepository.findWithNamedQuery("Compra.findByCompras");
+    }
+
 }

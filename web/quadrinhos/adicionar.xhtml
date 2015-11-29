@@ -49,6 +49,13 @@
                 </div>
 
                 <div class="form-group">
+                    #{ msg.estoque} (estoque antigo = #{quadrinhoBean.quadrinho.estoque} e deve somado (+) com a nova remessa)
+                    <h:inputText id="estoque" styleClass="form-control"
+                                 value="#{ quadrinhoBean.quadrinho.estoque }" required="true"/>
+                    <h:message for="estoque" styleClass="errorMessage"/>
+                </div>
+
+                <div class="form-group">
                     #{ msg.valorVenda}
                     <h:inputText id="valorVenda" styleClass="form-control"
                                  value="#{ quadrinhoBean.quadrinho.valorVenda }" required="true"

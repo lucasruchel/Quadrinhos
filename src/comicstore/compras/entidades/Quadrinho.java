@@ -11,11 +11,12 @@ import java.util.Date;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "Quadrinho.findByQuadrinho", query = "select q from Quadrinho q"),
+        @NamedQuery(name = "Quadrinho.findByQuadrinho", query = "select q from Quadrinho q order by q.nome"),
         @NamedQuery(name = "Quadrinho.findByQuadrinhoFiltro", query = "select q from Quadrinho q where q.nome Like :campo "+
                                                                                                         "or q.descricao Like :campo "+
                                                                                                         "or q.estado Like :campo "+
-                                                                                                        "or q.genero Like :campo")
+                                                                                                        "or q.genero Like :campo "+
+                                                                                                        "order by q.nome")
 })
 public class Quadrinho implements Serializable{
     private static final long serialVersionUID = 1L;
@@ -38,6 +39,8 @@ public class Quadrinho implements Serializable{
     private int nroPaginas;
 
     private String genero;
+
+    private int estoque;
 
     private String faixaEtaria;
 
@@ -147,5 +150,13 @@ public class Quadrinho implements Serializable{
 
     public void setDtAlteracao(Date dtAlteracao) {
         this.dtAlteracao = dtAlteracao;
+    }
+
+    public int getEstoque() {
+        return estoque;
+    }
+
+    public void setEstoque(int estoque) {
+        this.estoque = estoque;
     }
 }

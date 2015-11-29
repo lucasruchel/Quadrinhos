@@ -9,6 +9,8 @@ import java.util.List;
  * Created by wheezy on 27/11/15.
  */
 @Entity
+@NamedQueries({
+        @NamedQuery(name="Compra.findByCompras", query="Select c FROM Compra c")})
 public class Compra {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,6 +25,8 @@ public class Compra {
     private boolean quitada=false;
 
     private boolean entregue=false;
+
+
 
     public int getId() {
         return id;

@@ -140,19 +140,4 @@ public class AutenticacaoBean implements Serializable{
         return "/login/login.xhtml?faces-redirect=true";
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

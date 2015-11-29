@@ -25,21 +25,6 @@
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <h1 class="page-header">Todos os Quadrinho Cadastrados no Sistema</h1>
 
-            <div class="row placeholders">
-
-            </div>
-
-            <h:form>
-                <div class="form-group">
-                    <h:commandButton class="novaquadrinho" styleClass="btn btn-primary" action="nvoquadrinho" value="Inserir um Novo Quadrinho"/>
-                </div>
-                <div class="form-group">
-                    <h:commandButton action="visualiarClientes" styleClass="btn btn-success" value="visualiar Clientes"/>
-                </div>
-
-            </h:form>
-
-            <h2 class="sub-header">Section title</h2>
             <h:form>
                 <h:inputText value="#{reportsBean.campo}" id="campo"/>
                 <p:commandButton action="#{reportsBean.buscaQuadrinhoCampo()}" var="q" value="Buscar"/>
@@ -48,14 +33,12 @@
             <div class="table-responsive">
                 <p:dataTable value="#{reportsBean.buscaQuadrinhoCampo()}" var="q"
                              id="j_quadrinho" styleClass="table table-striped">
-
-
                     <h:column>
                         <f:facet name="header">#{msg.nome}</f:facet>
                         #{q.nome}
                     </h:column>
                     <h:column>
-                        <f:facet name="header">Descrição</f:facet>
+                        <f:facet name="header">#{msg.descricao}</f:facet>
                         #{q.descricao}
                     </h:column>
                     <h:column>
