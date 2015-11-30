@@ -28,7 +28,13 @@
             <h:form>
                 <h:inputText value="#{reportsBean.campo}" id="campo"/>
                 <p:commandButton action="#{reportsBean.buscaQuadrinhoCampo()}" var="q" value="Buscar"/>
+
+                <h:selectOneMenu id="order" value="#{reportsBean.order}">
+                    <f:selectItems value="#{reportsBean.orders}"/>
+                </h:selectOneMenu>
+                <p:commandButton action="#{reportsBean.buscaQuadrinhoCampo()}" var="q" value="Ordenar"/>
             </h:form>
+
 
             <div class="table-responsive">
                 <p:dataTable value="#{reportsBean.buscaQuadrinhoCampo()}" var="q"

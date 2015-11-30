@@ -16,7 +16,7 @@ import java.util.Date;
                                                                                                         "or q.descricao Like :campo "+
                                                                                                         "or q.estado Like :campo "+
                                                                                                         "or q.genero Like :campo "+
-                                                                                                        "order by q.nome")
+                                                                                                        "order by :order")
 })
 public class Quadrinho implements Serializable{
     private static final long serialVersionUID = 1L;
