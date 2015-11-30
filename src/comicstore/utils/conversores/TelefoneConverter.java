@@ -8,7 +8,9 @@ import javax.faces.convert.Converter;
 public class TelefoneConverter{
 
     public String TelefoneConverter(String telefone){
-        telefone.replace(" ","");
+        telefone=telefone.replace("(","");
+        telefone=telefone.replace(")","");
+        telefone=telefone.replace("-","");
         String tel;
         try {
             if (telefone.length() < 12)

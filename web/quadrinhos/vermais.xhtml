@@ -2,11 +2,12 @@
 <!DOCTYPE html
         PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xml:lang="en" lang="en"
       xmlns:ui="http://java.sun.com/jsf/facelets"
->
-<ui:composition template="">
+        >
+<ui:composition template="/WEB-INF/templates/index.xhtml">
 
+    <h:graphicImage value="#{links.serverLocation}#{links.imagesLocation}#{quadrinhoBean.quadrinho.imagePath}" />
 </ui:composition>
 
 </html>

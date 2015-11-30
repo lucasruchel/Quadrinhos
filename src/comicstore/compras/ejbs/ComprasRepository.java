@@ -3,6 +3,7 @@ package comicstore.compras.ejbs;
 import comicstore.compras.entidades.Compra;
 import comicstore.utils.repository.GenericRepository;
 
+import javax.ejb.Stateful;
 import javax.ejb.Stateless;
 
 /**

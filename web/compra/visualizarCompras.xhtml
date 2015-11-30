@@ -12,6 +12,7 @@
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:c="http://java.sun.com/jsp/jstl/core"
         >
     <ui:define name="title">Gizzads - Loja de Quadrinhos</ui:define>
 
@@ -35,6 +36,15 @@
                     <h:column>
                         <f:facet name="header">#{msg.cliente}</f:facet>
                         #{c.cliente.nome}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">#{msg.produtos}</f:facet>
+
+
+                        <h:dataTable value="#{c.produtos}" var="cp">
+                            #{cp.id}
+
+                        </h:dataTable>
                     </h:column>
                     <h:column>
                         <f:facet name="header">#{msg.quitada}</f:facet>

@@ -70,7 +70,7 @@
                     <h:inputText styleClass="form-control" id="telefone" label="#{msg.telefone}"
                                  value="#{autenticacaoBean.usuarioLogado.telefone}" required="true"
                                  requiredMessage="#{msg.telefoneObr}">
-                        <f:validateLength minimum="11" maximum="12"/>
+                        <f:validateLength minimum="11" maximum="15"/>
                     </h:inputText>
                     <h:message for="telefone" styleClass="errorMessage"/>
 
