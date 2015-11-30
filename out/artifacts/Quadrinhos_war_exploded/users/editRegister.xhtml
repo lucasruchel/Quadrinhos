@@ -6,27 +6,142 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-<ui:composition template="/WEB-INF/templates/index.xhtml"
+<ui:composition template="/WEB-INF/templates/dashboard/index.xhtml"
                 xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+
         >
     <ui:define name="title">Gizzads - Loja de Quadrinhos</ui:define>
-
-
+    <h1>Editar o cadastro do cliente</h1>
+    <ui:define name="custom-headers">
+        <h:outputStylesheet library="custom" name="form-style.css" />
+    </ui:define>
+    <ui:define name="custom-scripts">
+        <h:outputScript library="custom" name="validadores.js" />
+    </ui:define>
 
     <ui:define name="content">
-        <div class="container">
-            <h:form id="j_register">
-                <h:inputText id="nome"/>
-                <h:inputText id="email"/>
-                <h:inputSecret id="pass"/>
+        <div class="container form-container">
 
-                <h:commandButton action="#{clienteBean.insere}" value="Salvar"/>
+            <h:form id="j_register">
+
+                <div class="form-group">
+                    #{msg.nome}
+                    <h:inputText styleClass="form-control" id="nome" label="#{msg.nome}"
+                                 value="#{autenticacaoBean.usuarioLogado.nome}" required="true"
+                                 requiredMessage="#{msg.nomeObr}" a:placeholder="Digite Seu Nome"/>
+                    <h:message for="nome" styleClass="errorMessage"/>
+                </div>
+
+                <div class="form-group">
+                    #{msg.email}
+                    <h:inputText styleClass="form-control" id="email" label="#{msg.email}"
+                                 value="#{autenticacaoBean.usuarioLogado.email}" required="true"
+                                 requiredMessage="#{msg.emailObr}">
+                        <f:validator validatorId="emailValidator" />
+                    </h:inputText>
+                    <h:message for="email" styleClass="errorMessage"/>
+                </div>
+
+                <div class="form-group">
+                    #{msg.pass}
+                    <h:inputSecret styleClass="form-control" id="pass" label="#{msg.pass}"
+                                   value="#{autenticacaoBean.usuarioLogado.senha}" required="true"
+                                   requiredMessage="#{msg.passObr}">
+                    </h:inputSecret>
+                    <h:message for="pass" styleClass="errorMessage"/>
+                </div>
+
+                <div class="form-group">
+                    #{msg.cpf}
+                    <h:inputText styleClass="form-control" id="cpf" label="#{msg.cpf}"
+                                 required="true" value="#{autenticacaoBean.usuarioLogado.cpf}"
+                                 requiredMessage="#{msg.cpfObr}">
+                        <f:validator validatorId="cpfvalidor" />
+                    </h:inputText>
+                    <h:message for="cpf" styleClass="errorMessage"/>
+                </div>
+                <div class="form-group">
+                    #{msg.telefone} Ex.:XX XXXXXXXX
+                    <h:inputText styleClass="form-control" id="telefone" label="#{msg.telefone}"
+                                 value="#{autenticacaoBean.usuarioLogado.telefone}" required="true"
+                                 requiredMessage="#{msg.telefoneObr}">
+                        <f:validateLength minimum="11" maximum="15"/>
+                    </h:inputText>
+                    <h:message for="telefone" styleClass="errorMessage"/>
+
+                </div>
+
+                <div class="form-group">
+                    #{msg.cep}
+                    <h:inputText styleClass="form-control" id="cep" label="#{msg.cep}"
+                                 value="#{autenticacaoBean.usuarioLogado.cep}" required="true"
+                                 requiredMessage="#{msg.cepObr}">
+                        <f:validateLength minimum="8" maximum="8"/>
+                    </h:inputText>
+                    <h:message for="cep" styleClass="errorMessage"/>
+                </div>
+
+                <div class="form-group">
+                    #{msg.rua}
+                    <h:inputText styleClass="form-control" id="rua" label="#{msg.rua}"
+                                 value="#{autenticacaoBean.usuarioLogado.rua}" required="true"
+                                 requiredMessage="#{msg.ruaObr}">
+                    </h:inputText>
+                    <h:message for="rua" styleClass="errorMessage"/>
+                </div>
+
+                <div class="form-group">
+                    #{msg.bairro}
+                    <h:inputText styleClass="form-control" id="bairro" label="#{msg.bairro}"
+                                 value="#{autenticacaoBean.usuarioLogado.bairro}" required="true"
+                                 requiredMessage="#{msg.bairroObr}">
+                    </h:inputText>
+                    <h:message for="bairro" styleClass="errorMessage"/>
+                </div>
+
+                <div class="form-group">
+                    #{msg.cidade}
+                    <h:inputText styleClass="form-control" id="cidade" label="#{msg.cidade}"
+                                 value="#{autenticacaoBean.usuarioLogado.cidade}" required="true"
+                                 requiredMessage="#{msg.cidadeObr}">
+                    </h:inputText>
+                    <h:message for="cidade" styleClass="errorMessage"/>
+                </div>
+
+                <div class="form-group">
+                    #{msg.numero}
+                    <h:inputText styleClass="form-control" id="numero" label="#{msg.numero}"
+                                 value="#{autenticacaoBean.usuarioLogado.numero}" required="true"
+                                 requiredMessage="#{msg.numeroObr}">
+                    </h:inputText>
+                    <h:message for="numero" styleClass="errorMessage"/>
+
+                </div>
+                <div class="form-group">
+                    #{msg.estado}
+                    <h:selectOneMenu styleClass="form-control" id="estado" value="#{autenticacaoBean.usuarioLogado.estado}">
+                        <f:selectItems value="#{clienteBean.estado}"/>
+                    </h:selectOneMenu>
+
+                </div>
+
+                <p:commandButton
+                        icon="fa-plug"
+                        styleClass="btn"
+                        action="#{clienteBean.update()}" ajax="false" value="Registrar"/>
+                <p:commandButton
+                        icon="fa-plug"
+                        value="Cancelar"
+                        action="cancelar" styleClass="btn" immediate="true"/>
             </h:form>
         </div>
     </ui:define>
+
 </ui:composition>
 
 

@@ -5,11 +5,12 @@
     <li class="active">
         <a href="#">Overview <span class="sr-only">(current)</span></a>
     </li>
-    <li>
-        <h:link  outcome="editRegister" value="Editar Cadastro" />
-    </li>
+
     <li>
         <h:link outcome="show-cart" value="Visualizar Carrinho" />
     </li>
 
+    <li>
+        <h:link  outcome="editRegister" value="Editar Cadastro" rendered="#{autenticacaoBean.loggedIn}"/>
+    </li>
 </ui:composition>

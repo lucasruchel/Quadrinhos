@@ -49,6 +49,7 @@
         <filter-name>LoginFilter</filter-name>
         <url-pattern>/admin/*</url-pattern>
         <url-pattern>/login/index.xhtml</url-pattern>
+        <url-pattern>/compra/fechacompra.xhtml</url-pattern>
     </filter-mapping>
 
     
@@ -66,6 +67,8 @@
         <param-name>facelets.LIBRARIES</param-name>
         <param-value>/WEB-INF/quadrinhos.taglib.xml</param-value>
     </context-param>
+
+
 
 
 

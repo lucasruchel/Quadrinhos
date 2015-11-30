@@ -40,17 +40,20 @@ public class Cliente  implements Serializable{
     @Column(nullable = false)
     private String nome;
 
-    @Column(nullable = false)
+    @Column(name = "email",nullable = false)
     private String email;
 
     private boolean isAdm=false;
 
     @Column(nullable = false)
     private String senha;
+
     private Date dataCadastro;
     private Date dataAlteracao;
-    @Column(nullable=false)
+
+    @Column(name = "cpf", nullable=false)
     private String cpf;
+
     private String telefone;
     private String cep;
     private String rua;
@@ -145,7 +148,7 @@ public class Cliente  implements Serializable{
         this.email= email.trim().toLowerCase();
     }
     public String getEmail(){
-        return this.email;
+        return this.email.trim().toLowerCase();
     }
 
     public void setSenha(String senha){

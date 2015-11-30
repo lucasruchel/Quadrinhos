@@ -3,9 +3,22 @@
                 xmlns:ui="http://java.sun.com/jsf/facelets">
 
     <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-    <li><a href="../quadrinhos/adicionar.xhtml">Novo Quadrinho</a></li>
-    <li><a href="../users/apresentaCliente.xhtml">Visualizar Clientes</a></li>
-    <li><a href="../compras/visualizarCompras.xhtml">Visualizar Compras</a></li>
-    <li><a href="/Quadrinhos_war_exploded/index.xhtml">Tela Inicial</a></li>
+    <li>
+        <h:link value="Novo Quadrinho" outcome="adicionarquadrinho" />
+    </li>
+    <li>
+        <h:link value="Visualizar Clientes" outcome="apresentacliente" />
+    </li>
+    <li>
+
+        <h:link value="Visualizar Compras" outcome="visualizarcompras" />
+    </li>
+    <li>
+        <h:link value="Tela Inicial" outcome="index" />
+    </li>
+
+
+    <ui:include src="clienteOpcoes.xhtml"/>
+
 
 </ui:composition>

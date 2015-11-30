@@ -7,7 +7,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://java.sun.com/jsf/html">
 
-<ui:composition template="/WEB-INF/templates/index.xhtml"
+<ui:composition template="/WEB-INF/templates/dashboard/index.xhtml"
                 xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:h="http://java.sun.com/jsf/html"
@@ -15,8 +15,14 @@
         >
     <ui:define name="title">Gizzads - Loja de Quadrinhos</ui:define>
 
+    <ui:define name="dashboard-opcoes">
+        <ui:include src="../WEB-INF/templates/dashboard/AdminOpcoes.xhtml" />
+    </ui:define>
+
     <ui:define name="content">
-        <div class="col">
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
             <h1 class="page-header">Apresentar todos os usuários do Sistema</h1>
 
             <h:form>

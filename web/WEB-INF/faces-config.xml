@@ -113,6 +113,24 @@
             <from-outcome>cart-itens</from-outcome>
             <to-view-id>/users/carrinho.xhtml</to-view-id>
         </navigation-case>
+
+        <navigation-case>
+            <from-outcome>index</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>visualizarcompras</from-outcome>
+            <to-view-id>/compra/visualizarCompras.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>apresentacliente</from-outcome>
+            <to-view-id>/users/apresentaCliente.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>adicionarquadrinho</from-outcome>
+            <to-view-id>/quadrinhos/adicionar.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     
     <navigation-rule>

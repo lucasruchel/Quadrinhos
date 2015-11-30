@@ -23,28 +23,16 @@
 
     <ui:define name="content">
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h1 class="page-header">Dashboard</h1>
-
-            <div class="row placeholders">
-
-            </div>
+            <h1 class="page-header">Todos os Quadrinho Cadastrados no Sistema</h1>
 
             <h:form>
-                <div class="form-group">
-                    <h:commandButton class="novaquadrinho" styleClass="btn btn-primary" action="nvoquadrinho" value="Inserir um Novo Quadrinho"/>
-                </div>
-                <div class="form-group">
-                    <h:commandButton action="visualiarClientes" styleClass="btn btn-success" value="visualiar Clientes"/>
-                </div>
-
+                <h:inputText value="#{reportsBean.campo}" id="campo"/>
+                <p:commandButton action="#{reportsBean.buscaQuadrinhoCampo()}" var="q" value="Buscar"/>
             </h:form>
 
-            <h2 class="sub-header">Section title</h2>
             <div class="table-responsive">
-                <p:dataTable value="#{quadrinhoBean.buscaQuadrinho()}" var="q"
+                <p:dataTable value="#{reportsBean.buscaQuadrinhoCampo()}" var="q"
                              id="j_quadrinho" styleClass="table table-striped">
-
-
                     <h:column>
                         <f:facet name="header">#{msg.nome}</f:facet>
                         #{q.nome}
@@ -66,7 +54,7 @@
                         #{q.nroPaginas}
                     </h:column>
                     <h:column>
-                        <f:facet name="header">#{msg.genero}</f:facet>
+                        <f:facet name="header">Gênero</f:facet>
                         #{q.genero}
                     </h:column>
                     <h:column>
@@ -82,7 +70,7 @@
                         #{q.dtLancamento}
                     </h:column>
                     <h:column>
-                        <f:facet name="header">#{msg.dtAlteracao}</f:facet>
+                        <f:facet name="header">Data Alteração</f:facet>
                         #{q.dtAlteracao}
                     </h:column>
 
@@ -105,6 +93,10 @@
 
     <ui:define name="cliente">
 
+    </ui:define>
+
+    <ui:define name="dashboard-opcoes">
+        <ui:include src="../WEB-INF/templates/dashboard/AdminOpcoes.xhtml" />
     </ui:define>
 
 </ui:composition>

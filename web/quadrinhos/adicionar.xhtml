@@ -17,12 +17,14 @@
       xmlns:f="http://java.sun.com/jsf/core"
     >
 
-<ui:composition template="/WEB-INF/templates/index.xhtml">
+<ui:composition template="/WEB-INF/templates/dashboard/index.xhtml">
     <ui:define name="title">
         Adicionar Quadrinhos
     </ui:define>
 
     <ui:define name="content">
+
+
         <div class="container form-container">
             <h:form enctype="multipart/form-data" styleClass="form-horizontal" id="j_quadrinho">
                 <f:event type="postValidate" listener="#{quadrinhoBean.validateValor}" />
@@ -114,9 +116,13 @@
             </h:form>
 
         </div>
+        </div>
 
     </ui:define>
 
+    <ui:define name="dashboard-opcoes">
+        <ui:include src="../WEB-INF/templates/dashboard/AdminOpcoes.xhtml" />
+    </ui:define>
 </ui:composition>
 
 </html>
