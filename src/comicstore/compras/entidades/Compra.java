@@ -12,7 +12,9 @@ import java.util.List;
  */
 @Entity
 @NamedQueries({
-        @NamedQuery(name="Compra.findByCompras", query="Select c FROM Compra c")})
+        @NamedQuery(name="Compra.findByCompras", query="Select c FROM Compra c"),
+        @NamedQuery(name="Compra.findByComprasCP", query="Select cp from CompraProduto cp")
+        })
 public class Compra {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -11,12 +11,18 @@ import java.util.Date;
 
 @Entity
 @NamedQueries({
+        @NamedQuery(name = "Quadrinho.findByQuadrinhoOrder", query = "select q from Quadrinho q ORDER BY :ordena ASC"),
         @NamedQuery(name = "Quadrinho.findByQuadrinho", query = "select q from Quadrinho q order by q.nome"),
+        @NamedQuery(name = "Quadrinho.findByQuadrinhoFiltroOrder", query = "select q from Quadrinho q where q.nome Like :campo "+
+                                                                                                            "or q.descricao Like :campo "+
+                                                                                                            "or q.estado Like :campo "+
+                                                                                                            "or q.genero Like :campo "+
+                                                                                                            " order by :ordena ASC"),
+
         @NamedQuery(name = "Quadrinho.findByQuadrinhoFiltro", query = "select q from Quadrinho q where q.nome Like :campo "+
                                                                                                         "or q.descricao Like :campo "+
                                                                                                         "or q.estado Like :campo "+
-                                                                                                        "or q.genero Like :campo "+
-                                                                                                        "order by :order")
+                                                                                                        "or q.genero Like :campo ")
 })
 public class Quadrinho implements Serializable{
     private static final long serialVersionUID = 1L;

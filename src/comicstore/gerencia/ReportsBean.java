@@ -55,12 +55,12 @@ public class ReportsBean implements Serializable{
         order.add("id");
         order.add("nome");
         order.add("descricao");
-        order.add("valorCompra");
-        order.add("valorVenda");
-        order.add("nroPaginas");
+        order.add("valorcompra");
+        order.add("valorvenda");
+        order.add("nropaginas");
         order.add("genero");
         order.add("estoque");
-        order.add("faixaEtaria");
+        order.add("faixaetaria");
 
         return order;
     }
@@ -78,19 +78,29 @@ public class ReportsBean implements Serializable{
 
 
     public List<Quadrinho> buscaQuadrinhoCampo(){
-        System.out.println(campo+" "+order);
-        if(campo.isEmpty() || order.isEmpty())
-            return quadrinhoRepository.findWithNamedQuery("Quadrinho.findByQuadrinho");
-        else{
+        //if(campo.isEmpty() && order.isEmpty())
+         //   return quadrinhoRepository.findWithNamedQuery("Quadrinho.findByQuadrinho");
+        ///else
+        if(campo.isEmpty()) {
+            Map parameters = new HashMap<String, Object>();
+            parameters.put("ordena",order.trim().toLowerCase());
+            return quadrinhoRepository.findWithNamedQuery("Quadrinho.findByQuadrinhoOrder", parameters);
+        }else{
             Map parameters = new HashMap<String,Object>();
             parameters.put("campo","%"+campo.trim().toLowerCase()+"%");
-            parameters.put("order",order.trim().toLowerCase());
-            System.out.println(order);
-            return quadrinhoRepository.findWithNamedQuery("Quadrinho.findByQuadrinhoFiltro",parameters);
+            parameters.put("ordena",order.trim().toLowerCase());
+            System.out.println(parameters.toString());
+            return quadrinhoRepository.findWithNamedQuery("Quadrinho.findByQuadrinhoFiltroOrder",parameters);
         }
     }
     public List<Compra> buscaCompras(){
             return quadrinhoRepository.findWithNamedQuery("Compra.findByCompras");
+    }
+
+    public List<Compra> buscaComprasProduto(){
+        Map parameters = new HashMap<String,Object>();
+        //parameters.put("campo",campo.trim().toLowerCase());
+        return quadrinhoRepository.findWithNamedQuery("Compra.findByComprasCP");
     }
 
 }
