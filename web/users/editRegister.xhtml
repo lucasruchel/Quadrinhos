@@ -88,7 +88,7 @@
                     <h:inputText styleClass="form-control" id="cep" label="#{msg.cep}"
                                  value="#{autenticacaoBean.usuarioLogado.cep}" required="true"
                                  requiredMessage="#{msg.cepObr}">
-                        <f:validateLength minimum="8" maximum="8"/>
+                        <f:validateLength minimum="8" maximum="10"/>
                     </h:inputText>
                     <h:message for="cep" styleClass="errorMessage"/>
                 </div>

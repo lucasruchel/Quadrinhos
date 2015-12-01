@@ -33,7 +33,7 @@
             <h:commandButton action="#{compraBean.fechaCompra() }" value="Fecha Compra"
                              styleClass="btn btn-danger" />
 
-            <p:dataTable value="#{reportsBean.buscaClienteCampo()}" var="c" id="j_cliente" styleClass="table table-striped">
+            <p:dataTable value="#{autenticacaoBean.usuarioLogado}" var="c" id="j_cliente" styleClass="table table-striped">
             <h1>Boleto</h1>
             <h:column>
                 #{msg.id} : #{c.nome}
@@ -45,7 +45,7 @@
                 #{msg.email}:#{c.email}
             </h:column>
             </p:dataTable>
-            <p:dataTable value="#{reportsBean.buscaClienteCampo()}" var="c" id="j_cliente2" styleClass="table table-striped">
+            <p:dataTable value="#{autenticacaoBean.usuarioLogado}" var="c" id="j_cliente2" styleClass="table table-striped">
                 <h:column>
                     #{msg.endereco} :  Brasil - #{c.cidade} - #{c.bairro} - #{c.rua} - #{c.numero}
                 </h:column>

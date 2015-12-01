@@ -107,7 +107,9 @@ public class Cliente  implements Serializable{
     }
 
     public void setCep(String cep) {
-        this.cep = (cep.substring(0,2)+"."+cep.substring(2,5)+"-"+cep.substring(5, 8));
+
+
+        this.cep = cep;
     }
 
     public String getTelefone() {
