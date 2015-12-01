@@ -33,7 +33,6 @@ public class CompraBean implements Serializable{
 
         compra.setCliente(autenticacaoBean.getUsuarioLogado());
         compra.setProdutos(carrinhoBean.listCart());
-
         compra.setEntregue(false);
         compra.setQuitada(false);
 
@@ -43,6 +42,8 @@ public class CompraBean implements Serializable{
 
         return null;
    }
+
+
 
     public CarrinhoBean getCarrinhoBean() {
         return carrinhoBean;

@@ -1,6 +1,7 @@
 package comicstore.compras.beans;
 
 import comicstore.compras.ejbs.ComprasRepository;
+import comicstore.compras.entidades.Compra;
 import comicstore.compras.entidades.CompraProduto;
 import comicstore.compras.entidades.Quadrinho;
 
@@ -34,9 +35,8 @@ public class CarrinhoBean implements Serializable{
     //Adicionar nao passando quantidade default= qtd 1
     public String addtoCart(Quadrinho quadrinho){
         CompraProduto compraProduto;
-
+        Compra compra;
         compraProduto =  new CompraProduto(1,quadrinho,new Date());
-
         produtos.add(compraProduto);
 
 

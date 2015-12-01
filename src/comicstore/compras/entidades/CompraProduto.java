@@ -3,6 +3,7 @@ package comicstore.compras.entidades;
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by wheezy on 27/11/15.
@@ -62,4 +63,11 @@ public class CompraProduto {
     public void setTimestamp(Date timestamp) {
         this.timestamp = timestamp;
     }
+
+
+    @OneToOne(fetch = FetchType.LAZY)
+    private Compra compra;
+
+
+
 }

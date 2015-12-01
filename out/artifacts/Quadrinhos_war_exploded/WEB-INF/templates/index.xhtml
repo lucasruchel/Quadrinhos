@@ -21,12 +21,12 @@
     <ui:insert name="default-headers">
 
 
-    <h:outputStylesheet library="bootstrap" name="css/bootstrap.min.css"/>
+
     <h:outputStylesheet library="custom" name="sticky-footer.css" />
     <h:outputStylesheet library="custom" name="navbar-fixed-top.css" />
     <h:outputStylesheet library="custom" name="banner.css" />
     <h:outputStylesheet library="custom" name="thumbnails.css" />
-
+        <h:outputStylesheet library="bootstrap" name="css/bootstrap.min.css"/>
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -47,13 +47,15 @@
 
 
     <ui:include src="footer.xhtml"/>
+
+
+    <ui:insert name="custom-scripts"></ui:insert>
+    <ui:insert name="default-scripts">
+        <h:outputScript library="bootstrap" name="js/bootstrap.min.js" target="body"/>
+    </ui:insert>
 </h:body>
-<ui:insert name="default-scripts">
 
-    <h:outputScript library="bootstrap" name="js/bootstrap.min.js"/>
 
-</ui:insert>
-<ui:insert name="custom-scripts"></ui:insert>
 
 
 </html>

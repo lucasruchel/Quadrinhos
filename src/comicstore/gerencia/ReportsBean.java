@@ -83,12 +83,12 @@ public class ReportsBean implements Serializable{
         ///else
         if(campo.isEmpty()) {
             Map parameters = new HashMap<String, Object>();
-            parameters.put("ordena",order.trim().toLowerCase());
+            parameters.put("ordena","'"+order.trim().toLowerCase()+"'");
             return quadrinhoRepository.findWithNamedQuery("Quadrinho.findByQuadrinhoOrder", parameters);
         }else{
             Map parameters = new HashMap<String,Object>();
             parameters.put("campo","%"+campo.trim().toLowerCase()+"%");
-            parameters.put("ordena",order.trim().toLowerCase());
+            parameters.put("ordena","'"+order.trim().toLowerCase()+"'");
             System.out.println(parameters.toString());
             return quadrinhoRepository.findWithNamedQuery("Quadrinho.findByQuadrinhoFiltroOrder",parameters);
         }
@@ -99,8 +99,10 @@ public class ReportsBean implements Serializable{
 
     public List<Compra> buscaComprasProduto(){
         Map parameters = new HashMap<String,Object>();
-        //parameters.put("campo",campo.trim().toLowerCase());
+       // parameters.put("campo",campo.trim().toLowerCase());
         return quadrinhoRepository.findWithNamedQuery("Compra.findByComprasCP");
     }
+
+
 
 }

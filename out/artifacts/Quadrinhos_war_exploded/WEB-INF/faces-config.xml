@@ -23,21 +23,7 @@
             <to-view-id>/login/login.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
-    <navigation-rule>
-        <from-view-id>/index.html</from-view-id>
-        <navigation-case>
-            <from-outcome>admin</from-outcome>
-            <to-view-id>/admin/index.xhtml</to-view-id>
-            <redirect />
-        </navigation-case>
-    </navigation-rule>
-    <navigation-rule>
-        <from-view-id>/register.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>inserted</from-outcome>
-            <to-view-id>/login/login.xhtml</to-view-id>
-        </navigation-case>
-    </navigation-rule>
+
     <navigation-rule>
         <from-view-id>/login/login.xhtml</from-view-id>
         <navigation-case>
@@ -98,5 +84,57 @@
             <redirect />
         </navigation-case>
     </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>*</from-view-id>
+
+        <navigation-case>
+            <from-outcome>dashboard</from-outcome>
+            <if>#{autenticacaoBean.usuarioLogado.adm}</if>
+            <to-view-id>/admin/index.xhtml</to-view-id>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>dashboard</from-outcome>
+            <if>#{!autenticacaoBean.usuarioLogado.adm}</if>
+            <to-view-id>/users/index.xhtml</to-view-id>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>editRegister</from-outcome>
+            <to-view-id>/users/editRegister.xhtml</to-view-id>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>show-cart</from-outcome>
+            <to-view-id>/users/carrinho.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cart-itens</from-outcome>
+            <to-view-id>/users/carrinho.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/users/carrinho.xhtml</from-view-id>
+        
+        <navigation-case>
+            <from-outcome>fecharcompra</from-outcome>
+            <to-view-id>/compra/fechacompra.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id>
+
+        <navigation-case>
+            <from-outcome>vermais</from-outcome>
+
+            <to-view-id>/quadrinhos/vermais.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+
+
 
 </faces-config>

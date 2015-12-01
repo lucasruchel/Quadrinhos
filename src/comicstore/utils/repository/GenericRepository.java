@@ -76,6 +76,7 @@ public class GenericRepository<T> implements basicOperations<T>{
         return query.getResultList();
     }
 
+
     @Override
     public List findWithNamedQuery(String queryName, int resultLimit) {
         return this.entityManager.createNamedQuery(queryName).
