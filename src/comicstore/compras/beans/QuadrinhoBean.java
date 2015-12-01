@@ -145,6 +145,8 @@ public class QuadrinhoBean implements Serializable {
     public String vermais(Quadrinho quadrinho){
         this.quadrinho = quadrinho;
 
+        System.out.println("quadrinho = [" + quadrinho.getDescricao() + "]");
+        System.out.println("quadrinho = [" + this.quadrinho.getDescricao() + "]");
         return "vermais";
     }
 

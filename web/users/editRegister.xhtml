@@ -24,7 +24,14 @@
         <h:outputScript library="custom" name="validadores.js" />
     </ui:define>
 
+    <ui:define name="dashboard-opcoes">
+        <ui:include src="../WEB-INF/templates/dashboard/clienteOpcoes.xhtml" />
+    </ui:define>
+
     <ui:define name="content">
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <h1 class="page-header">Editar Cadastro</h1>
+
         <div class="container form-container">
 
             <h:form id="j_register">
@@ -139,6 +146,7 @@
                         value="Cancelar"
                         action="cancelar" styleClass="btn" immediate="true"/>
             </h:form>
+        </div>
         </div>
     </ui:define>
 

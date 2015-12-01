@@ -27,7 +27,7 @@ import java.util.Date;
                                                               "or c.telefone Like :campo")})
 
 
-@Table(name = "cliente",uniqueConstraints = @UniqueConstraint(columnNames = {"email","cpf"}))
+@Table(name = "cliente")
 @ManagedBean(name = "cliente")
 public class Cliente  implements Serializable{
 
@@ -40,7 +40,7 @@ public class Cliente  implements Serializable{
     @Column(nullable = false)
     private String nome;
 
-    @Column(name = "email",nullable = false)
+    @Column(name = "email",nullable = false,unique = true)
     private String email;
 
     private boolean isAdm=false;
@@ -51,7 +51,7 @@ public class Cliente  implements Serializable{
     private Date dataCadastro;
     private Date dataAlteracao;
 
-    @Column(name = "cpf", nullable=false)
+    @Column(name = "cpf", nullable=false,unique = true)
     private String cpf;
 
     private String telefone;
@@ -145,10 +145,10 @@ public class Cliente  implements Serializable{
     }
 
     public void setEmail(String email){
-        this.email= email.trim().toLowerCase();
+        this.email= email;
     }
     public String getEmail(){
-        return this.email.trim().toLowerCase();
+        return this.email;
     }
 
     public void setSenha(String senha){

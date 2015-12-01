@@ -8,6 +8,8 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -39,11 +41,8 @@ public class CarrinhoBean implements Serializable{
 
         produtos.add(compraProduto);
 
-
-        System.out.println("quadrinho = [" + produtos.size() + "] "+"produto: "+quadrinho.getNome());
-
-        //Lembra de colocar mensagem
-        //####
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.addMessage(null, new FacesMessage("Successful",  "Item Adicionado Com Sucesso"));
 
         return null;
     }
@@ -52,11 +51,15 @@ public class CarrinhoBean implements Serializable{
         return null;
     }
 
-
+    public int getSize(){return produtos.size();}
     public List<CompraProduto> listCart(){
         return produtos;
     }
 
+    public String removetoCart(CompraProduto compraProduto){
+        produtos.remove(compraProduto);
 
+        return "";
+    }
 
 }

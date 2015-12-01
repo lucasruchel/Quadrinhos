@@ -23,7 +23,7 @@
 
     <ui:define name="content">
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h1 class="page-header">Todos os Quadrinho Cadastrados no Sistema</h1>
+            <h1 class="page-header text-center">Quadrinhos no Sistema</h1>
 
             <h:form>
                 <h:inputText value="#{reportsBean.campo}" id="campo"/>
@@ -75,9 +75,18 @@
                     </h:column>
 
                     <h:column>
+                        <f:facet name="header">Ações</f:facet>
                         <h:form>
-                            <h:commandButton action="#{quadrinhoBean.delete(q)}" value="excluir"/>
-                            <h:commandButton action="#{quadrinhoBean.edit(q)}" value="editar"/>
+                            <div class="btn-group-vertical">
+                                <div class="btn-group">
+                                    <h:commandButton styleClass="btn btn-danger" action="#{quadrinhoBean.delete(q)}" value="excluir"/>
+                                </div>
+                                <div class="btn-group">
+                                    <h:commandButton styleClass="btn btn-primary" action="#{quadrinhoBean.edit(q)}" value="editar"/>
+                                </div>
+
+
+                            </div>
                         </h:form>
                     </h:column>
 

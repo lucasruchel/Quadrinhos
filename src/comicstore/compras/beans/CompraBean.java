@@ -6,6 +6,8 @@ import comicstore.compras.entidades.Compra;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
@@ -29,6 +31,7 @@ public class CompraBean implements Serializable{
     private ComprasRepository comprasRepository;
 
     public String fechaCompra(){
+/*
         Compra compra = new Compra();
 
         compra.setCliente(autenticacaoBean.getUsuarioLogado());
@@ -41,6 +44,8 @@ public class CompraBean implements Serializable{
 
         comprasRepository.create(compra);
 
+
+*/
         return null;
    }
 

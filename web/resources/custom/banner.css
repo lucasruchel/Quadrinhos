@@ -1,14 +1,17 @@
 .banner{
-    background: url(#{resource['custom/images/bannerBackground.png']}) repeat-x rgba(255, 255, 255, 0.3);
+
     min-height: 200px;
 
+    margin-bottom: 30px;
+    background: rgba(238, 238, 238, 0.3);
 }
 .banner .jumbotron{
     margin: auto;
     max-width: 700px;
     min-height: 200px;
     text-align: center;
-    background: rgba(238, 238, 238, 0.3);
+    background: none;
+
 }
 .center-block{
 
