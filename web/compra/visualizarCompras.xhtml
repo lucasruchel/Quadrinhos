@@ -15,9 +15,12 @@
                 xmlns:c="http://java.sun.com/jsp/jstl/core"
         >
     <ui:define name="title">Gizzads - Loja de Quadrinhos</ui:define>
+    <ui:define name="dashboard-opcoes">
+        <ui:include src="../WEB-INF/templates/dashboard/AdminOpcoes.xhtml" />
+    </ui:define>
 
     <ui:define name="content">
-        <div class="col">
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <h1 class="page-header">Apresentar todas as compras do Sistema</h1>
 
             <!--<h:form>
@@ -38,20 +41,6 @@
                         #{c.cliente.nome}
                     </h:column>
 
-                    <h:column>
-                        <f:facet name="header">#{msg.produtos}</f:facet>
-
-                        <h:dataTable value="#{reportsBean.buscaComprasProduto()}" var="cp">
-                            <h:column>
-                                #{cp.quantidade}
-                                #{cp.quadrinho.nome}
-                            </h:column>
-                            <h:column>
-                                <f:facet name="header">#{msg.dataCompra}</f:facet>
-                                #{cp.timestamp}
-                            </h:column>
-                        </h:dataTable>
-                    </h:column>
                     <h:column>
                         <f:facet name="header">#{msg.quitada}</f:facet>
                         #{c.quitada}

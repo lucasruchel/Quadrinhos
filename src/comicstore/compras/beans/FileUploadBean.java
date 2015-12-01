@@ -28,7 +28,7 @@ public class FileUploadBean implements Serializable{
     private Matcher matcher;
 
     private static final String IMAGE_PATTERN =
-            "([^\\s]+(\\.(?i)(jpg|png|gif))$)";
+            "([^\\s]+(\\.(?i)(jpg|png|gif|jpeg))$)";
 
 
     public UploadedFile getUploadedImage() {
@@ -61,7 +61,7 @@ public class FileUploadBean implements Serializable{
         // Do what you want with the file
 
         if(!validate(fullFileName))
-            return "default.jpg";
+            return "default.png";
 
         try {
             copyFile(fullFileName, file.getInputstream());

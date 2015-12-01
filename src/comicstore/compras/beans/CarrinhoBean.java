@@ -43,10 +43,6 @@ public class CarrinhoBean implements Serializable{
             this.vlTotal += quadrinho.getValorVenda();// * quantidade se for usar
             produtos.add(compraProduto);
 
-        compraProduto =  new CompraProduto(1,quadrinho,new Date());
-
-        produtos.add(compraProduto);
-
         FacesContext context = FacesContext.getCurrentInstance();
         context.addMessage(null, new FacesMessage("Successful",  "Item Adicionado Com Sucesso"));
 

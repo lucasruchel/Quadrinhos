@@ -85,12 +85,6 @@ public class QuadrinhoBean implements Serializable {
     }
 
     public String insere(){
-        /*if(quadrinho.getValorCompra()>quadrinho.getValorVenda()){
-            FacesContext.getCurrentInstance().addMessage("j_quadrinho:valorVenda", new FacesMessage("Valor de Venda não Pode ser menor que o de compra!"));
-            return null;
-        }*/
-
-
 
         if(quadrinho.getId() == 0)
             quadrinhoRepository.create(quadrinho);
@@ -116,7 +110,7 @@ public class QuadrinhoBean implements Serializable {
 
     public String edit (Quadrinho quadrinho){
         this.quadrinho = quadrinho;
-
+        quadrinho = new Quadrinho();
         return "editar";
     }
 
