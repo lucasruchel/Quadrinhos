@@ -87,7 +87,12 @@
 
     <navigation-rule>
         <from-view-id>*</from-view-id>
+        <navigation-case>
+            <from-outcome>vermais</from-outcome>
 
+            <to-view-id>/quadrinhos/vermais.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
         <navigation-case>
             <from-outcome>dashboard</from-outcome>
             <if>#{autenticacaoBean.usuarioLogado.adm}</if>
@@ -113,6 +118,24 @@
             <from-outcome>cart-itens</from-outcome>
             <to-view-id>/users/carrinho.xhtml</to-view-id>
         </navigation-case>
+
+        <navigation-case>
+            <from-outcome>index</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>visualizarcompras</from-outcome>
+            <to-view-id>/compra/visualizarCompras.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>apresentacliente</from-outcome>
+            <to-view-id>/users/apresentaCliente.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>adicionarquadrinho</from-outcome>
+            <to-view-id>/quadrinhos/adicionar.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     
     <navigation-rule>
@@ -124,14 +147,7 @@
             <redirect />
         </navigation-case>
     </navigation-rule>
-    <navigation-rule>
-        <from-view-id>/index.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>vermais</from-outcome>
-            <to-view-id>/quadrinhos/vermais.xhtml</to-view-id>
-            <redirect />
-        </navigation-case>
-    </navigation-rule>
+
 
     <navigation-rule>
         <from-view-id>/compra/fechacompra.xhtml</from-view-id>

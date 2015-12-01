@@ -53,6 +53,22 @@
                 <f:facet name="header">Produto</f:facet>
                 <img src="#{links.serverLocation}#{links.imagesLocation}#{p.quadrinho.imagePath}" alt="Produto #{p.quadrinho.nome} imagem" class="cart-product-icon"/>
             </h:column>
+            <h:column>
+                <f:facet name="header">Ações</f:facet>
+
+                <h:form>
+                    <div class="btn-group-vertical">
+                        <div class="btn-group">
+                            <h:commandButton styleClass="btn btn-danger" action="#{carrinhoBean.removetoCart(p)}" value="excluir"/>
+                        </div>
+                        <div class="btn-group">
+                            <h:commandButton class="btn btn-success"
+                                     action="#{quadrinhoBean.vermais(p.quadrinho)}" value="Ver Mais"/>
+
+                        </div>
+                    </div>
+                </h:form>
+            </h:column>
         </h:dataTable>
 
 

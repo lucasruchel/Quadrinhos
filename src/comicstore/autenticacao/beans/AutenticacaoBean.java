@@ -6,6 +6,7 @@ import comicstore.autenticacao.ejbs.ClienteRepository;
 import comicstore.autenticacao.entidades.Cliente;
 import comicstore.utils.conversores.StringCipher;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
@@ -32,6 +33,12 @@ public class AutenticacaoBean implements Serializable{
     private Cliente usuarioLogado;
     private String email,senha;
 
+
+    @PostConstruct
+    private void init(){
+        this.email = "";
+        this.senha = "";
+    }
 
     public boolean isLoggedIn() {
         return loggedIn;

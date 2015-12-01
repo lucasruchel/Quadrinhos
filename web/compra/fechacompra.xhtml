@@ -30,7 +30,7 @@
 
 
         <h:form>
-            <h:commandButton action="#{compraBean.fechaCompra() }" value="Gerar Pagamento"
+            <h:commandButton action="#{compraBean.fechaCompra() }" value="Fecha Compra"
                              styleClass="btn btn-danger" />
 
             <p:dataTable value="#{reportsBean.buscaClienteCampo()}" var="c" id="j_cliente" styleClass="table table-striped">
@@ -67,7 +67,6 @@
             </h:dataTable>
             <h3>Valor total a Pagar : #{carrinhoBean.vlTotal}</h3>
         </h:form>
-
 
         </div>
     </ui:define>

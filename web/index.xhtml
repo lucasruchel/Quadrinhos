@@ -29,7 +29,7 @@
         <div class="container">
 
             <gizzads:quadrinhoThumb quadrinhos="#{reportsBean.buscaQuadrinhoCampo() }"
-                                    basePath="http://localhost:8080/images/" />
+                                    basePath="#{links.serverLocation}#{links.imagesLocation}" />
         </div>
     </ui:define>
 </ui:composition>

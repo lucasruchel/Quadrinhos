@@ -6,7 +6,7 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-<ui:composition template="/WEB-INF/templates/index.xhtml"
+<ui:composition template="/WEB-INF/templates/dashboard/index.xhtml"
                 xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:h="http://java.sun.com/jsf/html"
@@ -24,7 +24,14 @@
         <h:outputScript library="custom" name="validadores.js" />
     </ui:define>
 
+    <ui:define name="dashboard-opcoes">
+        <ui:include src="../WEB-INF/templates/dashboard/clienteOpcoes.xhtml" />
+    </ui:define>
+
     <ui:define name="content">
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <h1 class="page-header">Editar Cadastro</h1>
+
         <div class="container form-container">
 
             <h:form id="j_register">
@@ -139,6 +146,7 @@
                         value="Cancelar"
                         action="cancelar" styleClass="btn" immediate="true"/>
             </h:form>
+        </div>
         </div>
     </ui:define>
 

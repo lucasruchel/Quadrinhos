@@ -5,6 +5,7 @@ import org.primefaces.component.fileupload.FileUpload;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.UploadedFile;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -23,15 +24,32 @@ public class FileUploadBean implements Serializable{
     private UploadedFile uploadedImage;
     private String destination="/data/quadrinhos/";
 
+    private Pattern pattern;
+    private Matcher matcher;
+
+    private static final String IMAGE_PATTERN =
+            "([^\\s]+(\\.(?i)(jpg|png|gif))$)";
+
+
     public UploadedFile getUploadedImage() {
         return uploadedImage;
     }
 
-    public void setUploadedImage(UploadedFile uploadedImage) {
+        public void setUploadedImage(UploadedFile uploadedImage) {
         this.uploadedImage = uploadedImage;
     }
 
+    @PostConstruct
+    private void init(){
+        pattern = Pattern.compile(IMAGE_PATTERN);
+    }
 
+    public boolean validate(final String image){
+
+        matcher = pattern.matcher(image);
+        return matcher.matches();
+
+    }
 
     public String upload(UploadedFile file,String fileName) {
         FacesMessage msg = new FacesMessage("Success! ", file.getFileName() + " is uploaded.");
@@ -42,11 +60,8 @@ public class FileUploadBean implements Serializable{
 
         // Do what you want with the file
 
-
-
-        if(!validaExtensao(extension)){
-            return "error";
-        }
+        if(!validate(fullFileName))
+            return "default.jpg";
 
         try {
             copyFile(fullFileName, file.getInputstream());
@@ -57,16 +72,7 @@ public class FileUploadBean implements Serializable{
         return fullFileName;
     }
 
-
-    public boolean validaExtensao(String extension){
-        Pattern p = Pattern.compile("jpg|png|gif|jpeg");
-        Matcher m = p.matcher(extension);
-
-        return m.matches();
-    }
-
-
-    public void copyFile(String fileName, InputStream in) {
+public void copyFile(String fileName, InputStream in) {
 
         try {
 

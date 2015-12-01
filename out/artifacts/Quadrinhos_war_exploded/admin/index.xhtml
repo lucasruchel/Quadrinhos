@@ -26,11 +26,8 @@
             <h1 class="page-header">Todos os Quadrinho Cadastrados no Sistema</h1>
 
             <h:form>
-                <h:inputText styleClass="btn btn-default" value="#{reportsBean.campo}" id="campo"/>
-                <h:selectOneMenu styleClass="btn btn-default" id="order" value="#{reportsBean.order}">
-                    <f:selectItems value="#{reportsBean.orders}"/>
-                </h:selectOneMenu>
-                <p:commandButton styleClass="btn btn-success" action="#{reportsBean.buscaQuadrinhoCampo()}" var="q" value="Buscar/Ordenar"/>
+                <h:inputText value="#{reportsBean.campo}" id="campo"/>
+                <p:commandButton action="#{reportsBean.buscaQuadrinhoCampo()}" var="q" value="Buscar"/>
             </h:form>
 
             <div class="table-responsive">

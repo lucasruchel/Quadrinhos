@@ -9,6 +9,8 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -41,8 +43,12 @@ public class CarrinhoBean implements Serializable{
             this.vlTotal += quadrinho.getValorVenda();// * quantidade se for usar
             produtos.add(compraProduto);
 
-        //Lembra de colocar mensagem
-        //####
+        compraProduto =  new CompraProduto(1,quadrinho,new Date());
+
+        produtos.add(compraProduto);
+
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.addMessage(null, new FacesMessage("Successful",  "Item Adicionado Com Sucesso"));
 
         return null;
     }
@@ -52,7 +58,7 @@ public class CarrinhoBean implements Serializable{
         return null;
     }
 
-
+    public int getSize(){return produtos.size();}
     public List<CompraProduto> listCart(){
         return produtos;
     }
@@ -60,9 +66,16 @@ public class CarrinhoBean implements Serializable{
     public float getVlTotal() {
         return vlTotal;
     }
+    public String removetoCart(CompraProduto compraProduto){
+        produtos.remove(compraProduto);
+        
+        return "";
+    }
 
+    
     public void setVlTotal(float vlTotal) {
         this.vlTotal =vlTotal ;
     }
+    
 
 }

@@ -12,6 +12,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
 >
     <ui:composition>
         <div class="row">
@@ -26,22 +27,26 @@
                             </p>
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-xs-6">
+                                    <h:form id="addCart">
                                     <p class="text-center">
-                                        <h:form>
+
+
                                             <h:commandLink action="#{carrinhoBean.addtoCart(q)}">
                                                 <h:graphicImage
                                                                 value="/resources/custom/images/cart-icon-48.png"
                                                                 styleClass="cart-icon"/>
                                             </h:commandLink>
-                                        </h:form>
-                                    </p>
-                                    <p class="text-center" >
-                                        <h:form>
-                                            <h:commandButton class="btn btn-success"
-                                                             action="#{quadrinhoBean.vermais(q)}" value="Ver Mais"/>
-                                        </h:form>
 
                                     </p>
+                                    <p class="text-center" >
+
+
+                                            <h:commandButton class="btn btn-success"
+                                                             action="#{quadrinhoBean.vermais(q)}" value="Ver Mais"/>
+
+
+                                    </p>
+                                </h:form>
                                 </div>
 
                                 <div class="col-lg-6 col-md-6 col-xs-6">
