@@ -40,7 +40,7 @@ public class CompraBean implements Serializable{
 
         comprasRepository.create(compra);
 
-        return null;
+        return "terceiro";
    }
 
 

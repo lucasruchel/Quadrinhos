@@ -126,15 +126,21 @@
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/index.xhtml</from-view-id>
-
         <navigation-case>
             <from-outcome>vermais</from-outcome>
-
             <to-view-id>/quadrinhos/vermais.xhtml</to-view-id>
             <redirect />
         </navigation-case>
     </navigation-rule>
 
+    <navigation-rule>
+        <from-view-id>/compra/fechacompra.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>terceiro</from-outcome>
+            <to-view-id>../../www.bb.com.br</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
 
 
 </faces-config>

@@ -25,6 +25,8 @@ public class CompraProduto {
 
     public CompraProduto() {}
 
+
+
     public CompraProduto(int quantidade, Quadrinho quadrinho, Date timestamp) {
         this.quantidade = quantidade;
         this.quadrinho = quadrinho;
@@ -65,9 +67,14 @@ public class CompraProduto {
     }
 
 
-    @OneToOne(fetch = FetchType.LAZY)
-    private Compra compra;
+    @ManyToMany(mappedBy = "produtos")
+    private List<Compra> compra;
 
+    public List<Compra> getCompra() {
+        return compra;
+    }
 
-
+    public void setCompra(List<Compra> compra) {
+        this.compra = compra;
+    }
 }

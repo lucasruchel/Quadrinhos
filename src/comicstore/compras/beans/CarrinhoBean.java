@@ -32,21 +32,21 @@ public class CarrinhoBean implements Serializable{
         produtos = new ArrayList<CompraProduto>();
     }
 
+    private float vlTotal;
     //Adicionar nao passando quantidade default= qtd 1
     public String addtoCart(Quadrinho quadrinho){
         CompraProduto compraProduto;
         Compra compra;
-        compraProduto =  new CompraProduto(1,quadrinho,new Date());
-        produtos.add(compraProduto);
-
-
-        System.out.println("quadrinho = [" + produtos.size() + "] "+"produto: "+quadrinho.getNome());
+            compraProduto = new CompraProduto(1, quadrinho, new Date());
+            this.vlTotal += quadrinho.getValorVenda();// * quantidade se for usar
+            produtos.add(compraProduto);
 
         //Lembra de colocar mensagem
         //####
 
         return null;
     }
+
     public String addtoCart(CompraProduto compraProduto){
 
         return null;
@@ -57,6 +57,12 @@ public class CarrinhoBean implements Serializable{
         return produtos;
     }
 
+    public float getVlTotal() {
+        return vlTotal;
+    }
 
+    public void setVlTotal(float vlTotal) {
+        this.vlTotal =vlTotal ;
+    }
 
 }

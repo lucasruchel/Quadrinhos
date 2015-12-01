@@ -10,11 +10,17 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://java.sun.com/jsf/html" xmlns:H="http://java.sun.com/jsf/html">
 >
-
-<ui:composition template="/WEB-INF/templates/dashboard/index.xhtml">
+<ui:composition template="/WEB-INF/templates/dashboard/index.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+        >
     <ui:define name="dashboard-opcoes">
         <ui:include src="../WEB-INF/templates/dashboard/clienteOpcoes.xhtml" />
     </ui:define>
@@ -24,9 +30,44 @@
 
 
         <h:form>
-            <h:commandButton action="#{compraBean.fechaCompra() }" value="Fecha Compra"
+            <h:commandButton action="#{compraBean.fechaCompra() }" value="Gerar Pagamento"
                              styleClass="btn btn-danger" />
+
+            <p:dataTable value="#{reportsBean.buscaClienteCampo()}" var="c" id="j_cliente" styleClass="table table-striped">
+            <h1>Boleto</h1>
+            <h:column>
+                #{msg.id} : #{c.nome}
+            </h:column>
+            <h:column>
+                #{msg.cpf} : #{c.cpf}
+            </h:column>
+            <h:column>
+                #{msg.email}:#{c.email}
+            </h:column>
+            </p:dataTable>
+            <p:dataTable value="#{reportsBean.buscaClienteCampo()}" var="c" id="j_cliente2" styleClass="table table-striped">
+                <h:column>
+                    #{msg.endereco} :  Brasil - #{c.cidade} - #{c.bairro} - #{c.rua} - #{c.numero}
+                </h:column>
+            </p:dataTable>
+
+            <h:dataTable value="#{carrinhoBean.listCart() }" var="p"
+                         id="j_quadrinho" styleClass="table table-striped">
+                <h:column>
+                    <f:facet name="header">Detalhes da Compra</f:facet>
+                    #{p.quadrinho.nome}
+                </h:column>
+                <h:column>
+                    #{p.quadrinho.descricao}
+                </h:column>
+                <h:column>
+                    #{p.quadrinho.valorVenda}
+                </h:column>
+
+            </h:dataTable>
+            <h3>Valor total a Pagar : #{carrinhoBean.vlTotal}</h3>
         </h:form>
+
 
         </div>
     </ui:define>

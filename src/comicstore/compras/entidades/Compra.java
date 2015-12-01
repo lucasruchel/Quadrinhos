@@ -14,7 +14,8 @@ import java.util.List;
 @NamedQueries({
         @NamedQuery(name="Compra.findByCompras", query="Select c FROM Compra c"),
         @NamedQuery(name="Compra.findByWithJoinCompras", query="Select c FROM Compra c "),
-        @NamedQuery(name="Compra.findByComprasCP", query="Select cp from CompraProduto cp")
+        @NamedQuery(name="Compra.findByComprasCP", query="Select cp from CompraProduto cp" )
+ //                                                       " Join compras_compraproduto ccp")
 
         })
 public class Compra {
@@ -25,9 +26,10 @@ public class Compra {
     @ManyToOne
     private Cliente cliente;
 
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    //@JoinTable(name = "compras_compraproduto", joinColumns=@JoinColumn(name="compra_id"),
-   //         inverseJoinColumns =@JoinColumn(name="id"))
+    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @JoinTable(name = "compras_compraproduto",
+            joinColumns=@JoinColumn(name="compra_id",referencedColumnName = "id"),
+            inverseJoinColumns =@JoinColumn(name="id",referencedColumnName = "id"))
     private List<CompraProduto> produtos;
 
 
